@@ -1,4 +1,4 @@
-@import './dark-mode.css';
+@import '@/assets/styles/dark-mode.css';
 
 *,
 *::before,

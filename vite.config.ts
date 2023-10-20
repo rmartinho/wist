@@ -23,10 +23,10 @@ export default defineConfig(({ command }) => ({
         glob: 'color-*.png',
       },
       target: {
-        image: './src/assets/color-sprites.png',
+        image: './src/assets/images/color-sprites.png',
         css: [
           [
-            './src/assets/color-sprites.css',
+            './src/assets/styles/color-sprites.css',
             {
               format: 'css',
             },
@@ -34,7 +34,7 @@ export default defineConfig(({ command }) => ({
         ],
       },
       apiOptions: {
-        cssImageRef: './color-sprites.png',
+        cssImageRef: '@/assets/images/color-sprites.png',
       },
     }),
     spritesmith({
@@ -44,10 +44,10 @@ export default defineConfig(({ command }) => ({
         glob: 'gray-*.png',
       },
       target: {
-        image: './src/assets/gray-sprites.png',
+        image: './src/assets/images/gray-sprites.png',
         css: [
           [
-            './src/assets/gray-sprites.css',
+            './src/assets/styles/gray-sprites.css',
             {
               format: 'css',
             },
@@ -55,7 +55,7 @@ export default defineConfig(({ command }) => ({
         ],
       },
       apiOptions: {
-        cssImageRef: './gray-sprites.png',
+        cssImageRef: '@/assets/images/gray-sprites.png',
       },
     }),
   ],

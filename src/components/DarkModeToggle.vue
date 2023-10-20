@@ -26,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue';
-import { useColorSchemes, type ColorSchemeName } from '@/utils/color-scheme';
+import { computed, watch } from 'vue'
+import { useColorSchemes, type ColorSchemeName } from '@/utils/color-scheme'
 
 const props = withDefaults(defineProps<{
   fallback?: ColorSchemeName

@@ -1,4 +1,4 @@
-@import './solarized.css';
+@import '@/assets/styles/solarized.css';
 
 :root {
   --wist-c-background-1: var(--light, var(--solarized-c-base3)) var(--dark, var(--solarized-c-base03));
