@@ -1,0 +1,192 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-color-chor {
+  background-image: url(./color-sprites.png);
+  background-position: 0px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-edge {
+  background-image: url(./color-sprites.png);
+  background-position: -24px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-ereb {
+  background-image: url(./color-sprites.png);
+  background-position: 0px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-fet {
+  background-image: url(./color-sprites.png);
+  background-position: -24px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-forge {
+  background-image: url(./color-sprites.png);
+  background-position: -48px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-grail {
+  background-image: url(./color-sprites.png);
+  background-position: -48px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-health {
+  background-image: url(./color-sprites.png);
+  background-position: 0px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-heart {
+  background-image: url(./color-sprites.png);
+  background-position: -24px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-horomachistry {
+  background-image: url(./color-sprites.png);
+  background-position: -48px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-hushery {
+  background-image: url(./color-sprites.png);
+  background-position: -72px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-illumination {
+  background-image: url(./color-sprites.png);
+  background-position: -72px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-ithastry {
+  background-image: url(./color-sprites.png);
+  background-position: -72px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-knock {
+  background-image: url(./color-sprites.png);
+  background-position: 0px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-lantern {
+  background-image: url(./color-sprites.png);
+  background-position: -24px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-mettle {
+  background-image: url(./color-sprites.png);
+  background-position: -48px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-moon {
+  background-image: url(./color-sprites.png);
+  background-position: -72px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-moth {
+  background-image: url(./color-sprites.png);
+  background-position: -96px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-nectar {
+  background-image: url(./color-sprites.png);
+  background-position: -96px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-nyctodromy {
+  background-image: url(./color-sprites.png);
+  background-position: -96px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-phost {
+  background-image: url(./color-sprites.png);
+  background-position: -96px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-preservation {
+  background-image: url(./color-sprites.png);
+  background-position: 0px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-rose {
+  background-image: url(./color-sprites.png);
+  background-position: -24px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-scale {
+  background-image: url(./color-sprites.png);
+  background-position: -48px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-shapt {
+  background-image: url(./color-sprites.png);
+  background-position: -72px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-skolekosophy {
+  background-image: url(./color-sprites.png);
+  background-position: -96px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-sky {
+  background-image: url(./color-sprites.png);
+  background-position: -120px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-trist {
+  background-image: url(./color-sprites.png);
+  background-position: -120px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-winter {
+  background-image: url(./color-sprites.png);
+  background-position: -120px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-wist {
+  background-image: url(./color-sprites.png);
+  background-position: -120px -72px;
+  width: 24px;
+  height: 24px;
+}

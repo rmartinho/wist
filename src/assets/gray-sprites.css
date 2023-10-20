@@ -1,0 +1,192 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-gray-chor {
+  background-image: url(./gray-sprites.png);
+  background-position: 0px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-edge {
+  background-image: url(./gray-sprites.png);
+  background-position: -24px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-ereb {
+  background-image: url(./gray-sprites.png);
+  background-position: 0px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-fet {
+  background-image: url(./gray-sprites.png);
+  background-position: -24px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-forge {
+  background-image: url(./gray-sprites.png);
+  background-position: -48px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-grail {
+  background-image: url(./gray-sprites.png);
+  background-position: -48px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-health {
+  background-image: url(./gray-sprites.png);
+  background-position: 0px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-heart {
+  background-image: url(./gray-sprites.png);
+  background-position: -24px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-horomachistry {
+  background-image: url(./gray-sprites.png);
+  background-position: -48px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-hushery {
+  background-image: url(./gray-sprites.png);
+  background-position: -72px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-illumination {
+  background-image: url(./gray-sprites.png);
+  background-position: -72px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-ithastry {
+  background-image: url(./gray-sprites.png);
+  background-position: -72px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-knock {
+  background-image: url(./gray-sprites.png);
+  background-position: 0px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-lantern {
+  background-image: url(./gray-sprites.png);
+  background-position: -24px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-mettle {
+  background-image: url(./gray-sprites.png);
+  background-position: -48px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-moon {
+  background-image: url(./gray-sprites.png);
+  background-position: -72px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-moth {
+  background-image: url(./gray-sprites.png);
+  background-position: -96px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-nectar {
+  background-image: url(./gray-sprites.png);
+  background-position: -96px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-nyctodromy {
+  background-image: url(./gray-sprites.png);
+  background-position: -96px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-phost {
+  background-image: url(./gray-sprites.png);
+  background-position: -96px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-preservation {
+  background-image: url(./gray-sprites.png);
+  background-position: 0px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-rose {
+  background-image: url(./gray-sprites.png);
+  background-position: -24px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-scale {
+  background-image: url(./gray-sprites.png);
+  background-position: -48px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-shapt {
+  background-image: url(./gray-sprites.png);
+  background-position: -72px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-skolekosophy {
+  background-image: url(./gray-sprites.png);
+  background-position: -96px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-sky {
+  background-image: url(./gray-sprites.png);
+  background-position: -120px 0px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-trist {
+  background-image: url(./gray-sprites.png);
+  background-position: -120px -24px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-winter {
+  background-image: url(./gray-sprites.png);
+  background-position: -120px -48px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-wist {
+  background-image: url(./gray-sprites.png);
+  background-position: -120px -72px;
+  width: 24px;
+  height: 24px;
+}

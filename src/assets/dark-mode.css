@@ -1,0 +1,38 @@
+/*
+  Light/dark theme toggling
+
+  Usage:
+    color: var(--light, white) var(--dark, black);
+  This sets the color to white in light mode, and to black in dark mode
+*/
+
+/* Enable color schemes */
+:root {
+  color-scheme: dark light;
+}
+
+/* Honor browser/OS color scheme preferences */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light: ;
+    --dark: initial;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --dark: ;
+    --light: initial;
+  }
+}
+
+/* Honor color scheme forcing via CSS classes */
+:root.dark-color-scheme {
+  --light: ;
+  --dark: initial;
+}
+
+:root.light-color-scheme {
+  --dark: ;
+  --light: initial;
+}

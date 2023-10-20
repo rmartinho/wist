@@ -1,0 +1,32 @@
+@import './solarized.css';
+
+:root {
+  --wist-c-background-1: var(--light, var(--solarized-c-base3)) var(--dark, var(--solarized-c-base03));
+  --wist-c-background-2: var(--light, var(--solarized-c-base2)) var(--dark, var(--solarized-c-base02));
+  --wist-c-content-1: var(--light, var(--solarized-c-base1)) var(--dark, var(--solarized-c-base01));
+  --wist-c-content-2: var(--light, var(--solarized-c-base00)) var(--dark, var(--solarized-c-base0));
+  --wist-c-content-3: var(--light, var(--solarized-c-base01)) var(--dark, var(--solarized-c-base1));
+
+  --wist-c-accent-1: var(--solarized-c-yellow);
+  --wist-c-accent-2: var(--solarized-c-orange);
+  --wist-c-accent-3: var(--solarized-c-red);
+  --wist-c-accent-4: var(--solarized-c-magenta);
+  --wist-c-accent-5: var(--solarized-c-violet);
+  --wist-c-accent-6: var(--solarized-c-blue);
+  --wist-c-accent-7: var(--solarized-c-cyan);
+  --wist-c-accent-8: var(--solarized-c-green);
+}
+
+:root {
+  --color-background: var(--wist-c-background-1);
+  --color-background-soft: var(--wist-c-background-2);
+
+  --color-border: var(--wist-c-content-1);
+
+  --color-heading: var(--wist-c-content-3);
+  --color-text: var(--wist-c-content-2);
+
+  --color-stroke: var(--wist-c-content-3);
+
+  --color-warn: var(var(--wist-c-accent-1));
+}
