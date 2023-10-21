@@ -8,6 +8,7 @@
     <aspect-check aspect="forge" v-model="selected" />
     <aspect-check aspect="edge" :model-value="false" readonly />
 -->
+
 <template>
   <label :class="{ disabled: readonly }">
     <input type="checkbox" v-model="model" :disabled="readonly">
@@ -33,12 +34,12 @@ if (props.checked) {
 </script>
 
 <style scoped>
-label {
-  display: inline-flex;
-}
-
 input[type=checkbox] {
   appearance: none;
+}
+
+label {
+  display: inline-flex;
 }
 
 label:hover:not(.disabled) {

@@ -1,14 +1,14 @@
 <template>
-  <aspect-check aspect="lantern" />
-  <aspect-check aspect="forge" v-model="selected" checked />
-  <aspect-check aspect="edge" :model-value="true" readonly />
+  <aspect-radio aspect="lantern" name="test" v-model="model" />
+  <aspect-radio aspect="forge" name="test" v-model="model" />
+  <aspect-radio aspect="edge" name="test" v-model="model" readonly checked />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import AspectCheck from '@/components/AspectCheck.vue'
+import AspectRadio from '@/components/AspectRadio.vue'
 
-const selected = ref(false)
+const model = ref({ name: 'test' })
 </script>
 
 <style scoped></style>
