@@ -9,35 +9,16 @@
 -->
 
 <template>
-  <div class="aspects">
-    <template v-for="aspect in aspects" :key="aspect">
-      <aspect-icon :aspect="aspect" />
-    </template>
-  </div>
+  <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
+    <aspect-icon :aspect="slot.aspect" />
+  </aspect-component-group>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import AspectComponentGroup from './AspectComponentGroup.vue';
 import AspectIcon from './AspectIcon.vue';
 
-const props = withDefaults(
-  defineProps<{
-    aspects: string[],
-    rowSize?: number,
-  }>(),
-  { rowSize: 9 }
-)
-
-const nCols = computed(() => Math.min(props.aspects.length, props.rowSize))
-
+defineProps<{
+  aspects: string[],
+}>()
 </script>
-
-<style scoped>
-.aspects {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template: auto / repeat(v-bind(nCols), min-content);
-  height: min-content;
-  gap: 2px;
-}
-</style>
