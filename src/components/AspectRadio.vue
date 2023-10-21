@@ -4,6 +4,8 @@
   Usage:
     import AspectRadio from 'AspectRadio.vue'
 
+    const model = ref({ name: 'group1', value: 'edge' })
+
     <aspect-radio aspect="lantern" name="radio" v-model="model" />
     <aspect-radio aspect="forge" name="radio" v-model="model" />
     <aspect-radio aspect="edge" name="radio" model-value="model" readonly />

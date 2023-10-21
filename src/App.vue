@@ -1,14 +1,12 @@
 <template>
-  <aspect-radio aspect="lantern" name="test" v-model="model" />
-  <aspect-radio aspect="forge" name="test" v-model="model" />
-  <aspect-radio aspect="edge" name="test" v-model="model" readonly checked />
+    <aspect-icon-group :aspects="aspects" />
+    <aspect-icon-group :aspects="aspects" :row-size="2" />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import AspectRadio from '@/components/AspectRadio.vue'
+import AspectIconGroup from '@/components/AspectIconGroup.vue'
 
-const model = ref({ name: 'test' })
+const aspects = ['lantern', 'forge', 'edge', 'winter']
 </script>
 
 <style scoped></style>
