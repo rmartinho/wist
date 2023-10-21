@@ -9,7 +9,7 @@
 -->
 
 <template>
-  <button :class="{ [imageClass]: true }" :disabled="disabled"></button>
+  <button :class="{ [imageClass]: true }"></button>
 </template>
 
 <script setup lang="ts">
@@ -18,12 +18,12 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     aspect: string,
-    disabled?: boolean,
+    gray?: boolean,
   }>(),
-  { disabled: false }
+  { gray: false }
 )
 
-const imageClass = computed(() => `icon-${props.disabled ? 'gray-' : 'color-'}${props.aspect}`)
+const imageClass = computed(() => `icon-${props.gray ? 'gray-' : 'color-'}${props.aspect}`)
 </script>
 
 <style scoped>
