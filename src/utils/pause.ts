@@ -27,7 +27,7 @@ interface PausableRef<T> extends Ref<T> {
 export function usePausableRef<T>(r: Ref<T>): PausableRef<T> {
   let paused = false
   let changed = false
-  return Object.assign(customRef((track: () => void, trigger: () => void) => ({
+  return Object.assign(customRef((track, trigger) => ({
     get() {
       track()
       return r.value

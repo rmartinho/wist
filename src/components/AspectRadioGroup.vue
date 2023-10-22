@@ -9,7 +9,7 @@
 -->
 
 <template>
-  <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
+  <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs" >
     <aspect-radio :aspect="slot.aspect" v-model="model" />
   </aspect-component-group>
 </template>
