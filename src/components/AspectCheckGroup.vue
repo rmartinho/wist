@@ -18,9 +18,7 @@
 import AspectComponentGroup from './AspectComponentGroup.vue';
 import AspectCheck from './AspectCheck.vue';
 
-type AspectSelection = Record<string, boolean>
-
-const checked = defineModel<AspectSelection>({ default: {} })
+const checked = defineModel<Record<string, boolean>>({ default: {} })
 
 defineProps<{
   aspects: string[],

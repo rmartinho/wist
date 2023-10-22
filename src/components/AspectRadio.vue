@@ -6,9 +6,9 @@
 
     const model = ref({ name: 'group1', value: 'edge' })
 
-    <aspect-radio aspect="lantern" name="radio" v-model="model" />
-    <aspect-radio aspect="forge" name="radio" v-model="model" />
-    <aspect-radio aspect="edge" name="radio" model-value="model" readonly />
+    <aspect-radio aspect="lantern" v-model="model" />
+    <aspect-radio aspect="forge" v-model="model" />
+    <aspect-radio aspect="edge" :model-value="model" readonly />
 -->
 
 <template>
@@ -21,8 +21,9 @@
 <script setup lang="ts">
 import AspectIcon from './AspectIcon.vue';
 
+// Together because we don't want radios with the same name holding different values
 type Model = {
-  name: string,
+  readonly name: string,
   value?: string,
 }
 
