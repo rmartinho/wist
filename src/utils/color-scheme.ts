@@ -4,8 +4,8 @@
 // Usage:
 //  import { useColorSchemes } from 'color-scheme'
 //
-//  const { colorscheme } = useColorSchemes({ fallback: 'light'}) // will use light scheme if nothing else is set
-//  const { colorscheme } = useColorSchemes({ fallback: 'light', selected: 'dark'}) // will force use of dark scheme
+//  const colorscheme = useColorSchemes({ fallback: 'light'}) // will use light scheme if nothing else is set
+//  const colorscheme = useColorSchemes({ fallback: 'light', selected: 'dark'}) // will force use of dark scheme, with light as fallback
 //  console.log(colorscheme.value) // gets current color scheme
 //  colorscheme.toggle() // toggles to the other color scheme
 //  colorscheme.value = 'dark' // sets the color scheme directly
@@ -45,12 +45,12 @@ export interface ColorSchemeOptions {
 
 const currentScheme = ref(null as ColorSchemeName | null)
 
-export function useColorSchemes(options: ColorSchemeOptions): { colorscheme: ColorSchemeRef } {
+export function useColorSchemes(options: ColorSchemeOptions): ColorSchemeRef {
   const fallbackScheme = options.fallback
   const otherScheme = otherColorScheme(fallbackScheme)
   const fallbackClass = classFor(fallbackScheme)
   const otherClass = classFor(otherScheme)
-  const { query: otherSchemeQuery } = useMediaQuery(`(prefers-color-scheme: ${otherScheme})`)
+  const otherSchemeQuery = useMediaQuery(`(prefers-color-scheme: ${otherScheme})`)
   const defaultScheme = computed(() => otherSchemeQuery.value.matches ? otherScheme : fallbackScheme)
 
   const rootClasses = document.documentElement.classList
@@ -101,7 +101,5 @@ export function useColorSchemes(options: ColorSchemeOptions): { colorscheme: Col
       return currentScheme.value;
     }
   })
-  return {
-    colorscheme: colorscheme
-  }
+  return colorscheme
 }

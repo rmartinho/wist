@@ -3,19 +3,17 @@
 // Usage:
 //  import { useMediaQuery } from 'media-query'
 //
-//  const { query } = useMediaQuery(query)
+//  const query = useMediaQuery(query)
 //  watchEffect(() => console.log(query.value.matches))
 
 import { computed, type Ref } from 'vue'
 import { useEventTrigger } from '@/utils/event'
 
-export function useMediaQuery(queryString: string): { query: Ref<MediaQueryList> } {
+export function useMediaQuery(queryString: string): Ref<MediaQueryList> {
   const query = window.matchMedia(queryString)
-  const { trigger } = useEventTrigger(query, 'change')
-  return {
-    query: computed(() => {
-      trigger.use()
-      return query
-    })
-  }
+  const trigger = useEventTrigger(query, 'change')
+  return computed(() => {
+    trigger.use()
+    return query
+  })
 }

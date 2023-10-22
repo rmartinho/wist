@@ -35,7 +35,7 @@ const props = withDefaults(defineProps<{
   { fallback: 'light' }
 )
 
-const { colorscheme } = useColorSchemes({ fallback: props.fallback, selected: localStorage.colorscheme })
+const colorscheme = useColorSchemes({ fallback: props.fallback, selected: localStorage.colorscheme })
 
 const isDark = computed(() => colorscheme.value ? colorscheme.value == 'dark' : props.fallback == 'dark')
 

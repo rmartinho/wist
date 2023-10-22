@@ -4,7 +4,7 @@
 //  import { useEventListener, useEventTrigger } from 'event'
 //
 //  useEventListener(el, 'click', onClick) // is automatically removed upon unmounting
-//  const { trigger } = useEventTrigger(el, 'click') // returns a trigger object that triggers when the event fires
+//  const trigger = useEventTrigger(el, 'click') // creates a trigger object that triggers when the event fires
 
 import { onMounted, onUnmounted } from 'vue'
 import { trigger, type Trigger } from '@/utils/trigger';
@@ -22,8 +22,8 @@ export function useEventTrigger(
   target: EventTarget,
   event: string,
   options?: AddEventListenerOptions | boolean
-): { trigger: Trigger } {
+): Trigger {
   const t = trigger()
   useEventListener(target, event, t.trigger, options)
-  return { trigger: t }
+  return t
 }

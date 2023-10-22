@@ -3,26 +3,19 @@
 // Usage:
 //  import { useUrlFragment } from 'url'
 //
-//  const { urlFragment } = useUrlFragment()
+//  const urlFragment = useUrlFragment()
 
-import { computed, ref, type Ref } from 'vue'
-import { useEventListener } from '@/utils/event'
+import { computed, type Ref } from 'vue'
+import { useEventTrigger } from '@/utils/event'
 
-function hash() {
-  return window.location.hash?.substring(1)
-}
-
-export function useUrlFragment(): { urlFragment: Ref<string> } {
-  const fragment = ref(hash())
-  useEventListener(window, 'hashchange', () => fragment.value = hash())
-  return {
-    urlFragment: computed({
-      get() {
-        return fragment.value
-      },
-      set(newFragment: string) {
-        window.location.hash = `#${newFragment}`
-      }
-    })
-  }
+export function useUrlFragment(): Ref<string> {
+  useEventTrigger(window, 'hashchange')
+  return computed({
+    get() {
+      return window.location.hash?.substring(1)
+    },
+    set(newFragment: string) {
+      window.location.hash = `#${newFragment}`
+    }
+  })
 }
