@@ -32,7 +32,7 @@ export function usePausableRef<T>(r: Ref<T>): PausableRef<T> {
       track()
       return r.value
     },
-    set(value: T) {
+    set(value) {
       r.value = value
       changed = true
       if (!paused) {

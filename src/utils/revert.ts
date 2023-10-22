@@ -33,7 +33,7 @@ export function useRevertableRef<T>(r: Ref<T>, copier: (obj: T) => T = jsonCopy)
     get() {
       return r.value;
     },
-    set(newValue: any) {
+    set(newValue) {
       r.value = newValue;
     }
   }), {

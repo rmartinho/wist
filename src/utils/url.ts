@@ -14,7 +14,7 @@ export function useUrlFragment(): Ref<string> {
     get() {
       return window.location.hash?.substring(1)
     },
-    set(newFragment: string) {
+    set(newFragment) {
       window.location.hash = `#${newFragment}`
     }
   })

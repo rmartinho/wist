@@ -69,7 +69,7 @@ export function useColorSchemes(options: ColorSchemeOptions): ColorSchemeRef {
     get() {
       return currentScheme.value ?? defaultScheme.value
     },
-    set(newScheme: ColorSchemeName) {
+    set(newScheme) {
       currentScheme.value = newScheme
     }
   }), {
