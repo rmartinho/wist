@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import AspectComponentGroup from './AspectComponentGroup.vue';
-import AspectCheck from './AspectCheck.vue';
+import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
+import AspectCheck from '@/components/core/AspectCheck.vue';
 
 const checked = defineModel<Record<string, boolean>>({ default: {} })
 

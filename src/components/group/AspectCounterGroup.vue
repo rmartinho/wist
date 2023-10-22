@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import AspectComponentGroup from './AspectComponentGroup.vue';
-import AspectCounter from './AspectCounter.vue';
+import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
+import AspectCounter from '@/components/core/AspectCounter.vue';
 
 const counts = defineModel<Record<string, number>>({ default: {} })
 

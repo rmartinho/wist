@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import AspectCounterGroup from '@/components/AspectCounterGroup.vue'
+import AspectCounterGroup from '@/components/group/AspectCounterGroup.vue'
 import { ref, watch } from 'vue';
 
 const aspects = ['lantern', 'forge', 'edge', 'winter']

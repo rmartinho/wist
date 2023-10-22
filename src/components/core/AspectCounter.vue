@@ -22,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import AspectIcon from '@/components/AspectIcon.vue'
-import AspectButton from '@/components/AspectButton.vue'
+import AspectIcon from '@/components/core/AspectIcon.vue'
+import AspectButton from '@/components/core/AspectButton.vue'
 
 const count = defineModel<number>({ local: true, default: 0 })
 

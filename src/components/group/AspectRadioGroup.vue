@@ -16,8 +16,8 @@
 
 <script setup lang="ts">
 import { useId } from '@/utils/id';
-import AspectComponentGroup from './AspectComponentGroup.vue';
-import AspectRadio from './AspectRadio.vue';
+import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
+import AspectRadio from '@/components/core/AspectRadio.vue';
 import { ref } from 'vue';
 
 const value = defineModel<string>()

@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import AspectIcon from './AspectIcon.vue';
+import AspectIcon from '@/components/core/AspectIcon.vue';
 
 // Together because we don't want radios with the same name holding different values
 type Model = {

@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import AspectIcon from '@/components/AspectIcon.vue'
+import AspectIcon from '@/components/core/AspectIcon.vue'
 
 const props = withDefaults(defineProps<{
   aspect: string,
