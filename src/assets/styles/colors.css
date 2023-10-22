@@ -19,13 +19,12 @@
 
 :root {
   --color-background: var(--wist-c-background-1);
-  --color-background-soft: var(--wist-c-background-2);
+  --color-background-soft: var(--wist-c-background-1);
 
   --color-border: var(--wist-c-content-1);
 
-  --color-heading: var(--wist-c-content-3);
-  --color-text: var(--wist-c-content-2);
-
+  --color-text: var(--wist-c-content-3);
+  
   --color-stroke: var(--wist-c-content-3);
 
   --color-warn: var(var(--wist-c-accent-1));

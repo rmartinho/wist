@@ -11,7 +11,7 @@
       <template #dark-icon>
         <img src="dark.svg">
       </template>
-    <dark-mode-toggle/>
+    </dark-mode-toggle>
 -->
 
 <template>
