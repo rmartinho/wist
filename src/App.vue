@@ -1,21 +1,10 @@
 <template>
-    <aspect-counter-group :aspects="aspects" v-model="stuff" />
-    <dark-mode-toggle title="Switch color scheme">
-      <template #light-icon>
-        Light
-      </template>
-      <template #dark-icon>
-        Dark
-      </template>
-    </dark-mode-toggle>
+  <card-editor v-model="card"></card-editor>
 </template>
 
 <script setup lang="ts">
-import DarkModeToggle from './components/DarkModeToggle.vue';
-import AspectCounterGroup from '@/components/group/AspectCounterGroup.vue'
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
+import CardEditor from './components/CardEditor.vue';
 
-const aspects = ['lantern', 'forge', 'edge', 'winter']
-const stuff = ref({})
-watch(stuff, () => console.log(stuff.value), { immediate: true, deep: true });
+const card = ref({ id: 0, name: '', aspects: {} })
 </script>

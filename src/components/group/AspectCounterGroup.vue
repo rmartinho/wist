@@ -21,6 +21,6 @@ import AspectCounter from '@/components/core/AspectCounter.vue';
 const counts = defineModel<Record<string, number>>({ default: {} })
 
 defineProps<{
-  aspects: string[],
+  aspects: readonly string[],
 }>()
 </script>

@@ -19,6 +19,6 @@ import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
 import AspectIcon from '@/components/core/AspectIcon.vue';
 
 defineProps<{
-  aspects: string[],
+  aspects: readonly string[],
 }>()
 </script>

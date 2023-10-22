@@ -21,7 +21,7 @@ import AspectCheck from '@/components/core/AspectCheck.vue';
 const checked = defineModel<Record<string, boolean>>({ default: {} })
 
 defineProps<{
-  aspects: string[],
+  aspects: readonly string[],
 }>()
 
 </script>

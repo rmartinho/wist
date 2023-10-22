@@ -19,7 +19,7 @@ import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
 import AspectButton from '@/components/core/AspectButton.vue';
 
 defineProps<{
-  aspects: string[],
+  aspects: readonly string[],
 }>()
 
 const emit = defineEmits<{

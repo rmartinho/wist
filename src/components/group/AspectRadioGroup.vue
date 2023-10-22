@@ -23,7 +23,7 @@ import { ref } from 'vue';
 const value = defineModel<string>()
 
 defineProps<{
-  aspects: string[],
+  aspects: readonly string[],
 }>()
 
 const name = useId('aspect-radio-');

@@ -22,7 +22,7 @@ import { computed } from 'vue';
 
 const props = withDefaults(
   defineProps<{
-    aspects: string[],
+    aspects: readonly string[],
     rowSize?: number,
   }>(),
   { rowSize: 9 }
