@@ -14,7 +14,12 @@
 import { computed, ref, type Ref } from 'vue'
 import { useMediaQuery } from '@/utils/media-query'
 
-export type ColorSchemeName = 'light' | 'dark'
+
+export const colorSchemeNames = ['light', 'dark'] as const 
+export type ColorSchemeName = typeof colorSchemeNames[number]
+export function isColorSchemeName(obj: any): obj is ColorSchemeName {
+  return obj in colorSchemeNames
+}
 
 function otherColorScheme(colorscheme: ColorSchemeName): ColorSchemeName {
   return colorscheme == 'light' ? 'dark' : 'light'

@@ -19,7 +19,7 @@ export interface Trigger {
 }
 
 export function trigger(): Trigger {
-  const r = shallowRef(undefined);
+  const r = shallowRef();
   return Object.assign(r, {
     use() {
       return r.value

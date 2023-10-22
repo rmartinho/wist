@@ -16,10 +16,7 @@
 //  console.log(rev.value) // 0
 
 import { shallowRef, type Ref, computed } from 'vue'
-
-function jsonCopy<T>(obj: T): Readonly<T> {
-  return Object.freeze(JSON.parse(JSON.stringify(obj)))
-}
+import { clone } from './clone';
 
 interface RevertableRef<T> extends Ref<T> {
   revert(): void,
@@ -27,8 +24,8 @@ interface RevertableRef<T> extends Ref<T> {
   get oldValue(): T,
 }
 
-export function useRevertableRef<T>(r: Ref<T>, copier: (obj: T) => T = jsonCopy): RevertableRef<T> {
-  const old = shallowRef(copier(r.value))
+export function useRevertableRef<T>(r: Ref<T>, cloner: (obj: T) => T = clone): RevertableRef<T> {
+  const old = shallowRef(cloner(r.value))
   return Object.assign(computed({
     get() {
       return r.value;
@@ -38,10 +35,10 @@ export function useRevertableRef<T>(r: Ref<T>, copier: (obj: T) => T = jsonCopy)
     }
   }), {
     revert() {
-      r.value = copier(old.value);
+      r.value = cloner(old.value);
     },
     save() {
-      old.value = copier(r.value);
+      old.value = cloner(r.value);
     },
     get oldValue() {
       return old.value;

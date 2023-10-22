@@ -26,9 +26,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue'
-import { useColorSchemes, type ColorSchemeName } from '@/utils/color-scheme'
-import { usePersistentRef } from '@/utils/persist';
+import { computed } from 'vue'
+import { useColorSchemes, type ColorSchemeName, isColorSchemeName } from '@/utils/color-scheme'
+import { usePersistence } from '@/utils/persist';
+import { parseJsonFromStorage } from '@/utils/storage';
 
 const props = withDefaults(defineProps<{
   fallback?: ColorSchemeName
@@ -36,15 +37,14 @@ const props = withDefaults(defineProps<{
   { fallback: 'light' }
 )
 
-const preference = usePersistentRef<ColorSchemeName>('colorscheme')
-
-const colorscheme = useColorSchemes({ fallback: props.fallback, selected: preference.value })
+const storageKey = 'colorscheme'
+const selected = parseJsonFromStorage(window.localStorage, storageKey, isColorSchemeName)
+const colorscheme = useColorSchemes({ fallback: props.fallback, selected })
+usePersistence(colorscheme, storageKey)
 
 const isDark = computed(() => colorscheme.value ? colorscheme.value == 'dark' : props.fallback == 'dark')
 
 function onToggle() {
   colorscheme.toggle()
 }
-
-watch(colorscheme, () => preference.value = colorscheme.value)
 </script>

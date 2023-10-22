@@ -1,70 +1,19 @@
 // Extend Vue's Ref<T> with the ability to automatically persist the value
 //
-// BEWARE: by default this relies on simple JSON.stringify/JSON.parse to perform deep copies
+// BEWARE: this relies on simple JSON.stringify for persistent
 //
 // Usage:
-//  import { usePersistentRef } from 'persist'
+//  import { usePersistence } from 'persist'
 //
-//  const r = usePersistentRef('r', 0) // load from and persist in localStorage.r
-//  const r = usePersistentRef('r', window.sessionStorage, 0) // persist in sessionStorage.r
-//  const r = usePersistentRef({ get() {...}, set(value) {...} }) // custom persistence
+//  const stop = usePersistence(r, 'foo', 0) // load from and persist in localStorage.foo
+//  const stop = usePersistence(r, 'bar', window.sessionStorage, 0) // persist in sessionStorage.bar
 
-import { type Ref, computed, ref } from 'vue'
+import { type Ref, watch, type WatchStopHandle } from 'vue'
 
-interface PersistentRef<T> extends Ref<T> {
-  reload(): void,
-  persist(): void,
-}
+export function usePersistence<T>(r: Ref<T>, key: string): WatchStopHandle
+export function usePersistence<T>(r: Ref<T>, storage: Storage, key: string): WatchStopHandle
+export function usePersistence<T>(r: Ref<T>, keyOrStorage: string | Storage, maybeKey?: string): WatchStopHandle {
+  const [storage, key] = typeof keyOrStorage == 'string' ? [window.localStorage, keyOrStorage] : [keyOrStorage, maybeKey!]
 
-type Persister<T> = {
-  load: () => T,
-  store: (value: T) => void
-}
-
-// TODO also allow not providing default
-export function usePersistentRef<T>(key: string): PersistentRef<T | undefined>
-export function usePersistentRef<T>(key: string, defaultValue: T): PersistentRef<T>
-export function usePersistentRef<T>(key: string, storage: Storage): PersistentRef<T | undefined>
-export function usePersistentRef<T>(key: string, storage: Storage, defaultValue: T): PersistentRef<T>
-export function usePersistentRef<T>(persister: Persister<T>): PersistentRef<T>
-
-export function usePersistentRef<T>(keyOrPersister: string | Persister<T>, storageOrDefault?: Storage | T, defaultValue?: T): PersistentRef<T> {
-  if (typeof keyOrPersister == 'string') {
-    const [storage, defValue] = storageOrDefault instanceof Storage ? [storageOrDefault, defaultValue] : [window.localStorage, storageOrDefault]
-    return usePersistentRefImpl({
-      load() {
-        const item = storage.getItem(keyOrPersister)
-        if (item) {
-          return JSON.parse(item)
-        } else {
-          return defValue
-        }
-      },
-      store(value: T) {
-        storage.setItem(keyOrPersister, JSON.stringify(value))
-      }
-    })
-  } else {
-    return usePersistentRefImpl(keyOrPersister)
-  }
-}
-
-function usePersistentRefImpl<T>(persister: Persister<T>): PersistentRef<T> {
-  const r = ref(persister.load()) as Ref<T>
-  return Object.assign(computed({
-    get() {
-      return r.value
-    },
-    set(value) {
-      r.value = value
-      persister.store(r.value)
-    }
-  }), {
-    reload() {
-      r.value = persister.load()
-    },
-    persist() {
-      persister.store(r.value)
-    },
-  })
+  return watch(r, () => storage.setItem(key, JSON.stringify(r.value)))
 }
