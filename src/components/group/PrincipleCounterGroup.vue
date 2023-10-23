@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import AspectCounterGroup from '@/components/group/AspectCounterGroup.vue';
 import { principleAspects } from '@/aspects';
+import AspectCounterGroup from '@/components/group/AspectCounterGroup.vue';
 
 const aspects = defineModel<Record<string, number>>({ required: true })
 

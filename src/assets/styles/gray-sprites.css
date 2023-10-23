@@ -100,93 +100,129 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 24px;
   height: 24px;
 }
-.icon-gray-mettle {
+.icon-gray-memory {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -48px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-moon {
+.icon-gray-mettle {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -72px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-moth {
+.icon-gray-moon {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -96px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-nectar {
+.icon-gray-moth {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -96px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-nyctodromy {
+.icon-gray-nectar {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -96px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-phost {
+.icon-gray-nyctodromy {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -96px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-preservation {
+.icon-gray-phost {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: 0px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-rose {
+.icon-gray-preservation {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -24px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-scale {
+.icon-gray-readable {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -48px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-shapt {
+.icon-gray-room {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -72px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-skolekosophy {
+.icon-gray-rose {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -96px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-sky {
+.icon-gray-scale {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -120px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-trist {
+.icon-gray-shapt {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -120px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-winter {
+.icon-gray-skill {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -120px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-gray-wist {
+.icon-gray-skolekosophy {
   background-image: url(@/assets/images/gray-sprites.png);
   background-position: -120px -72px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-sky {
+  background-image: url(@/assets/images/gray-sprites.png);
+  background-position: -120px -96px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-soul {
+  background-image: url(@/assets/images/gray-sprites.png);
+  background-position: 0px -120px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-thing {
+  background-image: url(@/assets/images/gray-sprites.png);
+  background-position: -24px -120px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-trist {
+  background-image: url(@/assets/images/gray-sprites.png);
+  background-position: -48px -120px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-winter {
+  background-image: url(@/assets/images/gray-sprites.png);
+  background-position: -72px -120px;
+  width: 24px;
+  height: 24px;
+}
+.icon-gray-wist {
+  background-image: url(@/assets/images/gray-sprites.png);
+  background-position: -96px -120px;
   width: 24px;
   height: 24px;
 }
