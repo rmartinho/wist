@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
-import AspectIcon from '@/components/core/AspectIcon.vue';
+import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
+import AspectIcon from '@/components/core/AspectIcon.vue'
 
 defineProps<{
   aspects: readonly string[],

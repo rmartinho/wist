@@ -1,9 +1,11 @@
 // A card in Book of Hours
 
+import { type AspectSet } from './aspects'
+
 export interface Card {
   id: number,
   name: string,
-  aspects: Record<string, number>,
+  aspects: AspectSet,
 }
 
 export function cardValid(card: Card) {

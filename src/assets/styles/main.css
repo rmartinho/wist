@@ -27,3 +27,17 @@ body {
 
   font-weight: normal;
 }
+
+input[type=text] {
+  outline: none;
+  border-style: dotted;
+  border-color: var(--color-border);
+  border-width: 1px;
+  border-radius: 2px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+input[type=text]:focus {
+  filter: drop-shadow(0 0 2px);
+}

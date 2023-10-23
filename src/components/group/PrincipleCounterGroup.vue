@@ -7,5 +7,4 @@ import { principleAspects } from '@/aspects';
 import AspectCounterGroup from '@/components/group/AspectCounterGroup.vue';
 
 const aspects = defineModel<Record<string, number>>({ required: true })
-
 </script>

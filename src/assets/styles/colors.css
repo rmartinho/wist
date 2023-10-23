@@ -19,7 +19,7 @@
 
 :root {
   --color-background: var(--wist-c-background-1);
-  --color-background-soft: var(--wist-c-background-1);
+  --color-background-soft: var(--wist-c-background-2);
 
   --color-border: var(--wist-c-content-1);
 

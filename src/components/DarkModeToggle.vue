@@ -28,8 +28,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useColorSchemes, type ColorSchemeName, isColorSchemeName } from '@/utils/color-scheme'
-import { usePersistence } from '@/utils/persist';
-import { parseJsonFromStorage } from '@/utils/storage';
+import { usePersistence } from '@/utils/persist'
+import { parseJsonFromStorage } from '@/utils/storage'
 
 const props = withDefaults(defineProps<{
   fallback?: ColorSchemeName

@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { typeAspects, useSingleAspect } from '@/aspects';
-import AspectRadioGroup from '@/components/group/AspectRadioGroup.vue';
+import { typeAspects, useOneOfAspect } from '@/aspects'
+import AspectRadioGroup from '@/components/group/AspectRadioGroup.vue'
 
 const aspects = defineModel<Record<string, number>>({ required: true })
 
-const selected = useSingleAspect(typeAspects, aspects)
+const selected = useOneOfAspect(typeAspects, aspects)
 </script>

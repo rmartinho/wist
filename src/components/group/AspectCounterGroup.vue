@@ -15,10 +15,11 @@
 </template>
 
 <script setup lang="ts">
-import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
-import AspectCounter from '@/components/core/AspectCounter.vue';
+import { type AspectSet } from '@/aspects'
+import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
+import AspectCounter from '@/components/core/AspectCounter.vue'
 
-const counts = defineModel<Record<string, number>>({ default: {} })
+const counts = defineModel<AspectSet>({ default: {} })
 
 defineProps<{
   aspects: readonly string[],

@@ -15,13 +15,15 @@
 </template>
 
 <script setup lang="ts">
-import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
-import AspectCheck from '@/components/core/AspectCheck.vue';
+import { useBooleanAspects, type AspectSet } from '@/aspects';
+import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
+import AspectCheck from '@/components/core/AspectCheck.vue'
 
-const checked = defineModel<Record<string, boolean>>({ default: {} })
+const model = defineModel<AspectSet>({ default: {} })
 
 defineProps<{
   aspects: readonly string[],
 }>()
 
+const checked = useBooleanAspects(model)
 </script>

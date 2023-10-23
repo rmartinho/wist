@@ -16,7 +16,7 @@
 //  console.log(rev.value) // 0
 
 import { shallowRef, type Ref, computed } from 'vue'
-import { clone } from './clone';
+import { clone } from '@/utils/clone'
 
 interface RevertableRef<T> extends Ref<T> {
   revert(): void,
@@ -28,20 +28,20 @@ export function useRevertableRef<T>(r: Ref<T>, cloner: (obj: T) => T = clone): R
   const old = shallowRef(cloner(r.value))
   return Object.assign(computed({
     get() {
-      return r.value;
+      return r.value
     },
     set(newValue) {
-      r.value = newValue;
+      r.value = newValue
     }
   }), {
     revert() {
-      r.value = cloner(old.value);
+      r.value = cloner(old.value)
     },
     save() {
-      old.value = cloner(r.value);
+      old.value = cloner(r.value)
     },
     get oldValue() {
-      return old.value;
+      return old.value
     },
-  });
+  })
 }

@@ -15,10 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useId } from '@/utils/id';
-import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue';
-import AspectRadio from '@/components/core/AspectRadio.vue';
+import { ref } from 'vue'
+import { useId } from '@/utils/id'
+import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
+import AspectRadio from '@/components/core/AspectRadio.vue'
 
 const value = defineModel<string>()
 
@@ -26,7 +26,7 @@ defineProps<{
   aspects: readonly string[],
 }>()
 
-const name = useId('aspect-radio-');
+const name = useId('aspect-radio-')
 
 const model = ref({ name, value })
 </script>
