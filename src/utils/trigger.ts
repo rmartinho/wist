@@ -11,7 +11,7 @@
 //  // or they can trigger it
 //  t.trigger()
 
-import { shallowRef, triggerRef } from 'vue';
+import { shallowRef, triggerRef } from 'vue'
 
 export interface Trigger {
   use(): void
@@ -19,7 +19,7 @@ export interface Trigger {
 }
 
 export function trigger(): Trigger {
-  const r = shallowRef();
+  const r = shallowRef()
   return Object.assign(r, {
     use() {
       return r.value

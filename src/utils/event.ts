@@ -7,7 +7,7 @@
 //  const trigger = useEventTrigger(el, 'click') // creates a trigger object that triggers when the event fires
 
 import { onMounted, onUnmounted } from 'vue'
-import { trigger, type Trigger } from '@/utils/trigger';
+import { trigger, type Trigger } from '@/utils/trigger'
 
 export function useEventListener(
   target: EventTarget,

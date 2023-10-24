@@ -1,6 +1,6 @@
 // A card in Book of Hours
 
-import { cleanAspectSet, type AspectSet } from '@/aspects'
+import { makeAspectSet, type AspectSet } from '@/aspects'
 
 let id = 0
 
@@ -14,7 +14,7 @@ export function makeCard(name: string): Card {
   return {
     id: id++,
     name,
-    aspects: cleanAspectSet(),
+    aspects: makeAspectSet(),
   }
 }
 

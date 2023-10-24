@@ -10,7 +10,7 @@ export type TypeAspect = typeof typeAspects[number]
 
 export interface AspectSet extends Record<string, number> { }
 
-export function cleanAspectSet() {
+export function makeAspectSet() {
   return new Proxy(<AspectSet>{}, {
     set(obj, prop, value) {
       if (value == 0) {
