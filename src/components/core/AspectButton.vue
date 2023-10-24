@@ -9,7 +9,7 @@
 -->
 
 <template>
-  <button :class="{ [imageClass]: true }"></button>
+  <button :class="{ [imageClass]: true, 'gray-icon': isGray }"></button>
 </template>
 
 <script setup lang="ts">
@@ -23,12 +23,12 @@ const props = withDefaults(
   { gray: false }
 )
 
-const imageClass = computed(() => `icon-${props.gray ? 'gray-' : 'color-'}${props.aspect}`)
+const isGray = computed(() => props.gray || props.aspect == 'undefined')
+const imageClass = computed(() => `icon-${props.aspect}`)
 </script>
 
 <style scoped>
-@import '@/assets/styles/color-sprites.css';
-@import '@/assets/styles/gray-sprites.css';
+@import '@/assets/styles/sprites.css';
 
 button {
   all: unset;

@@ -9,7 +9,7 @@
 -->
 
 <template>
-  <img :class="{ [imageClass]: true }" src="@/assets/images/blank.gif">
+  <img :class="{ [imageClass]: true, 'gray-icon': isGray }" src="@/assets/images/blank.gif">
 </template>
 
 <script setup lang="ts">
@@ -24,10 +24,12 @@ const props = withDefaults(
 )
 
 const isGray = computed(() => props.gray || props.aspect == 'undefined')
-const imageClass = computed(() => `icon-${isGray.value ? 'gray-' : 'color-'}${props.aspect}`)
+const imageClass = computed(() => `icon-${props.aspect}`)
 </script>
 
 <style scoped>
+@import '@/assets/styles/sprites.css';
+
 img {
   display: inline-block;
   padding: 0px;
@@ -37,9 +39,4 @@ img {
 
   transition: filter 0.4s ease;
 }
-</style>
-
-<style>
-@import '@/assets/styles/color-sprites.css';
-@import '@/assets/styles/gray-sprites.css';
 </style>

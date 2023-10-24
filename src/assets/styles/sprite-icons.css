@@ -16,217 +16,217 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 // HTML
 <i class="icon icon-home"></i>
 */
-.icon-color-chor {
+.icon-chor {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: 0px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-color-edge {
+.icon-edge {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -24px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-color-ereb {
+.icon-ereb {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: 0px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-color-fet {
+.icon-fet {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -24px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-color-forge {
+.icon-forge {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -48px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-color-grail {
+.icon-grail {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -48px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-color-health {
+.icon-health {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: 0px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-color-heart {
+.icon-heart {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -24px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-color-horomachistry {
+.icon-horomachistry {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -48px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-color-hushery {
+.icon-hushery {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -72px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-color-illumination {
+.icon-illumination {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -72px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-color-ithastry {
+.icon-ithastry {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -72px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-color-knock {
+.icon-knock {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: 0px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-color-lantern {
+.icon-lantern {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -24px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-color-memory {
+.icon-memory {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -48px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-color-mettle {
+.icon-mettle {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -72px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-color-moon {
+.icon-moon {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -96px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-color-moth {
+.icon-moth {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -96px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-color-nectar {
+.icon-nectar {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -96px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-color-nyctodromy {
+.icon-nyctodromy {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -96px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-color-phost {
+.icon-phost {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: 0px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-color-preservation {
+.icon-preservation {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -24px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-color-readable {
+.icon-readable {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -48px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-color-room {
+.icon-room {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -72px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-color-rose {
+.icon-rose {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -96px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-color-scale {
+.icon-scale {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -120px 0px;
   width: 24px;
   height: 24px;
 }
-.icon-color-shapt {
+.icon-shapt {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -120px -24px;
   width: 24px;
   height: 24px;
 }
-.icon-color-skill {
+.icon-skill {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -120px -48px;
   width: 24px;
   height: 24px;
 }
-.icon-color-skolekosophy {
+.icon-skolekosophy {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -120px -72px;
   width: 24px;
   height: 24px;
 }
-.icon-color-sky {
+.icon-sky {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -120px -96px;
   width: 24px;
   height: 24px;
 }
-.icon-color-soul {
+.icon-soul {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: 0px -120px;
   width: 24px;
   height: 24px;
 }
-.icon-color-thing {
+.icon-thing {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -24px -120px;
   width: 24px;
   height: 24px;
 }
-.icon-color-trist {
+.icon-trist {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -48px -120px;
   width: 24px;
   height: 24px;
 }
-.icon-color-undefined {
+.icon-undefined {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -72px -120px;
   width: 24px;
   height: 24px;
 }
-.icon-color-winter {
+.icon-winter {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -96px -120px;
   width: 24px;
   height: 24px;
 }
-.icon-color-wist {
+.icon-wist {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -120px -120px;
   width: 24px;

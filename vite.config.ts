@@ -20,13 +20,13 @@ export default defineConfig(({ command }) => ({
       watch: command == 'serve',
       src: {
         cwd: './src/assets/sprites',
-        glob: 'color-*.png',
+        glob: '*.png',
       },
       target: {
         image: './src/assets/images/color-sprites.png',
         css: [
           [
-            './src/assets/styles/color-sprites.css',
+            './src/assets/styles/sprite-icons.css',
             {
               format: 'css',
             },
@@ -40,22 +40,19 @@ export default defineConfig(({ command }) => ({
     spritesmith({
       watch: command == 'serve',
       src: {
-        cwd: './src/assets/sprites',
-        glob: 'gray-*.png',
+        cwd: './src/assets/sprites/gray',
+        glob: '*.png',
       },
       target: {
         image: './src/assets/images/gray-sprites.png',
         css: [
           [
-            './src/assets/styles/gray-sprites.css',
+            './src/assets/styles/gray-sprites.json',
             {
-              format: 'css',
+              format: 'json_texture',
             },
           ],
         ],
-      },
-      apiOptions: {
-        cssImageRef: '@/assets/images/gray-sprites.png',
       },
     }),
   ],

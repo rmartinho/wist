@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -27,8 +27,6 @@ const props = withDefaults(
   }>(),
   { rowSize: 9 }
 )
-
-console.log(useAttrs())
 
 const nCols = computed(() => Math.min(props.aspects.length, props.rowSize))
 </script>
