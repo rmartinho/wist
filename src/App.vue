@@ -1,11 +1,19 @@
 <template>
-  <card-editor v-model="card"></card-editor>
+  <card-view v-model="card" />
+  <hr />
+  <card-view v-model="card" readonly />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cleanAspectSet } from './aspects';
-import CardEditor from './components/CardEditor.vue'
+import { makeCard } from '@/card'
+import CardView from '@/components/CardView.vue'
 
-const card = ref({ id: 0, name: '', aspects: cleanAspectSet() })
+const card = ref(makeCard(''))
 </script>
+
+<style scoped>
+hr {
+  margin: 8px;
+}
+</style>

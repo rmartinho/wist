@@ -11,15 +11,15 @@ export type TypeAspect = typeof typeAspects[number]
 export interface AspectSet extends Record<string, number> { }
 
 export function cleanAspectSet() {
-  return new Proxy({}, {
-    set(obj: AspectSet, prop, value: number) {
-      if (value != 0) {
-        return Reflect.set(obj, prop, value);
+  return new Proxy(<AspectSet>{}, {
+    set(obj, prop, value) {
+      if (value == 0) {
+        return Reflect.deleteProperty(obj, prop)
       } else {
-        return Reflect.deleteProperty(obj, prop);
+        return Reflect.set(obj, prop, value)
       }
     }
-  });
+  })
 }
 
 export function useBooleanAspects(aspects: MaybeRefOrGetter<AspectSet>): Ref<Record<string, boolean>> {

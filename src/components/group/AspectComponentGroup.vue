@@ -12,13 +12,13 @@
 <template>
   <div class="aspect-group">
     <template v-for="aspect in aspects" :key="aspect">
-      <slot :aspect="aspect"></slot>
+      <slot :aspect="aspect" v-bind="$attrs"></slot>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -27,6 +27,8 @@ const props = withDefaults(
   }>(),
   { rowSize: 9 }
 )
+
+console.log(useAttrs())
 
 const nCols = computed(() => Math.min(props.aspects.length, props.rowSize))
 </script>

@@ -10,7 +10,7 @@
 
 <template>
   <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
-    <aspect-check :aspect="slot.aspect" v-model="checked[slot.aspect]" />
+    <aspect-check v-bind="slot" v-model="checked[slot.aspect]" />
   </aspect-component-group>
 </template>
 

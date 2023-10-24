@@ -10,7 +10,7 @@
 
 <template>
   <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
-    <aspect-icon :aspect="slot.aspect" />
+    <aspect-icon v-bind="slot" />
   </aspect-component-group>
 </template>
 

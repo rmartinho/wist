@@ -214,15 +214,21 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 24px;
   height: 24px;
 }
-.icon-color-winter {
+.icon-color-undefined {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -72px -120px;
   width: 24px;
   height: 24px;
 }
-.icon-color-wist {
+.icon-color-winter {
   background-image: url(@/assets/images/color-sprites.png);
   background-position: -96px -120px;
+  width: 24px;
+  height: 24px;
+}
+.icon-color-wist {
+  background-image: url(@/assets/images/color-sprites.png);
+  background-position: -120px -120px;
   width: 24px;
   height: 24px;
 }

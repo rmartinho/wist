@@ -23,7 +23,8 @@ const props = withDefaults(
   { gray: false }
 )
 
-const imageClass = computed(() => `icon-${props.gray ? 'gray-' : 'color-'}${props.aspect}`)
+const isGray = computed(() => props.gray || props.aspect == 'undefined')
+const imageClass = computed(() => `icon-${isGray.value ? 'gray-' : 'color-'}${props.aspect}`)
 </script>
 
 <style scoped>
