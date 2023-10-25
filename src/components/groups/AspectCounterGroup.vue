@@ -19,8 +19,8 @@ export default {}
 <script setup lang="ts">
 import { computed } from 'vue'
 import { type AspectSet } from '@/aspects'
-import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
-import AspectCounter from '@/components/core/AspectCounter.vue'
+import AspectComponentGroup from '@/components/groups/AspectComponentGroup.vue'
+import AspectCounter from '@/components/aspects/AspectCounter.vue'
 
 const counts = defineModel<AspectSet>({ default: {} })
 

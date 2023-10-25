@@ -27,9 +27,9 @@ export default {}
 <script setup lang="ts">
 import { principleAspects, typeAspects } from '@/aspects'
 import { type Card } from '@/card'
-import AspectCounterGroup from '@/components/group/AspectCounterGroup.vue'
-import AspectSubsetRadioGroup from '@/components/group/AspectSubsetRadioGroup.vue'
-import OneOfAspectIcon from '@/components/core/OneOfAspectIcon.vue'
+import AspectCounterGroup from '@/components/groups/AspectCounterGroup.vue'
+import AspectSubsetRadioGroup from '@/components/groups/AspectSubsetRadioGroup.vue'
+import OneOfAspectIcon from '@/components/aspects/OneOfAspectIcon.vue'
 
 const card = defineModel<Card>({ required: true })
 

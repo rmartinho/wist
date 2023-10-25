@@ -18,7 +18,7 @@ export default {}
 </template>
 
 <script setup lang="ts">
-import AspectIcon from '@/components/core/AspectIcon.vue'
+import AspectIcon from '@/components/aspects/AspectIcon.vue'
 
 const model = defineModel<string>({ local: true })
 

@@ -18,7 +18,7 @@ export default {}
 <script setup lang="ts">
 import { computed } from 'vue'
 import { type AspectSet } from '@/aspects'
-import AspectIcon from './AspectIcon.vue'
+import AspectIcon from '@/components/aspects/AspectIcon.vue'
 
 const props = defineProps<{
   /** The aspect subset to display one of */

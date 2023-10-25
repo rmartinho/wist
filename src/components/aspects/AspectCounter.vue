@@ -22,8 +22,8 @@ export default {}
 </template>
 
 <script setup lang="ts">
-import AspectIcon from '@/components/core/AspectIcon.vue'
-import AspectButton from '@/components/core/AspectButton.vue'
+import AspectIcon from '@/components/aspects/AspectIcon.vue'
+import AspectButton from '@/components/aspects/AspectButton.vue'
 
 const count = defineModel<number>({ local: true, default: 0 })
 

@@ -14,7 +14,7 @@ export default {}
 
 <script setup lang="ts">
 import { useOneOfAspect, type AspectSet } from '@/aspects'
-import AspectRadioGroup from '@/components/group/AspectRadioGroup.vue'
+import AspectRadioGroup from '@/components/groups/AspectRadioGroup.vue'
 
 const value = defineModel<AspectSet>({ required: true })
 

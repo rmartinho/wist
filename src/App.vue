@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { makeCard } from '@/card'
-import CardView from '@/components/CardView.vue'
+import CardView from '@/components/cards/CardView.vue'
 
 const card = ref(makeCard(''))
 </script>

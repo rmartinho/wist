@@ -17,8 +17,8 @@ export default {}
 
 <script setup lang="ts">
 import { useBooleanAspects, type AspectSet } from '@/aspects';
-import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
-import AspectCheck from '@/components/core/AspectCheck.vue'
+import AspectComponentGroup from '@/components/groups/AspectComponentGroup.vue'
+import AspectCheck from '@/components/aspects/AspectCheck.vue'
 
 const model = defineModel<AspectSet>({ default: {} })
 
