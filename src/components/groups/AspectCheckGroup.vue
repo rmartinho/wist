@@ -24,7 +24,7 @@ const model = defineModel<AspectSet>({ default: {} })
 
 defineProps<{
   /** The aspects */
-  aspects: readonly string[],
+  aspects: readonly string[]
 }>()
 
 const checked = useBooleanAspects(model)

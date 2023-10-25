@@ -28,16 +28,39 @@ body {
   font-weight: normal;
 }
 
+button {
+  all: unset;
+  cursor: default;
+  display: flex;
+}
+
+button:disabled {
+  filter: grayscale(100%) opacity(50%);
+}
+
+button:hover:not(:disabled) {
+  filter: drop-shadow(0 0 2px);
+}
+
+button:active:not(:disabled) {
+  filter: drop-shadow(0 0 1px);
+}
+
 input[type=text] {
   outline: none;
   border-style: dotted;
   border-color: var(--color-border);
   border-width: 1px;
   border-radius: 2px;
+  height: 24px;
   background-color: var(--color-background);
   color: var(--color-text);
 }
 
 input[type=text]:focus {
   filter: drop-shadow(0 0 2px);
+}
+
+svg {
+  stroke: var(--color-stroke);
 }

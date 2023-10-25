@@ -13,7 +13,7 @@ export default {}
 
 <template>
   <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
-    <aspect-button v-bind="slot" @click="click(slot.aspect)" />
+    <aspect-button v-bind="slot" @click="onClick(slot.aspect)" />
   </aspect-component-group>
 </template>
 
@@ -23,14 +23,14 @@ import AspectButton from '@/components/aspects/AspectButton.vue'
 
 defineProps<{
   /** The aspects */
-  aspects: readonly string[],
+  aspects: readonly string[]
 }>()
 
 const emit = defineEmits<{
-  click: [aspect: string],
+  click: [aspect: string]
 }>()
 
-function click(aspect: string) {
+function onClick(aspect: string) {
   emit('click', aspect)
 }
 </script>

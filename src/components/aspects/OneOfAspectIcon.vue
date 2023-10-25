@@ -22,9 +22,9 @@ import AspectIcon from '@/components/aspects/AspectIcon.vue'
 
 const props = defineProps<{
   /** The aspect subset to display one of */
-  aspects: readonly string[],
+  aspects: readonly string[]
   /** The aspect set from which to get the aspect values */
-  value: AspectSet,
+  value: AspectSet
 }>()
 
 const value = computed(() => {

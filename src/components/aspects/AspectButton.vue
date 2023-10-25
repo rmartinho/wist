@@ -10,50 +10,38 @@ export default {}
 </script>
 
 <template>
-  <button :class="{ [imageClass]: true, 'gray-icon': isGray }"></button>
+  <button>
+    <aspect-icon :aspect="aspect" :gray="gray" />
+  </button>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import AspectIcon from '@/components/aspects/AspectIcon.vue'
 
-import { usePreload } from '@/utils/preload'
-import colorSprites from '@/assets/images/color-sprites.png?url'
-import graySprites from '@/assets/images/gray-sprites.png?url'
-usePreload('image', colorSprites, graySprites)
-
-const props = withDefaults(
+withDefaults(
   defineProps<{
     /** The aspect */
-    aspect: string,
+    aspect: string
     /** Whether to display this icon grayed out; defaults to false */
-    gray?: boolean,
+    gray?: boolean
   }>(),
   { gray: false }
 )
-
-const isGray = computed(() => props.gray || props.aspect == 'undefined')
-const imageClass = computed(() => `icon-${props.aspect}`)
 </script>
 
 <style scoped>
-@import '@/assets/styles/sprites.css';
-
 button {
-  all: unset;
-  cursor: default;
-
-  display: inline-block;
   padding: 0px;
   margin: 0px;
   height: 24px;
   width: 24px;
 }
 
-button:hover:not(:disabled) {
-  filter: drop-shadow(0 0 2px);
+button:hover:not(:disabled) img {
+  filter: none;
 }
 
-button:active:not(:disabled) {
-  filter: drop-shadow(0 0 1px);
+button:active:not(:disabled) img {
+  filter: none;
 }
 </style>

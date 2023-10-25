@@ -24,9 +24,9 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     /** The aspects */
-    aspects: readonly string[],
+    aspects: readonly string[]
     /** The maximum number of components per row; defaults to 8 */
-    rowSize?: number,
+    rowSize?: number
   }>(),
   { rowSize: 8 }
 )

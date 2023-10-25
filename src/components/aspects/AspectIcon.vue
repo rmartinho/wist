@@ -24,9 +24,9 @@ usePreload('image', colorSprites, graySprites)
 const props = withDefaults(
   defineProps<{
     /** The aspect */
-    aspect: string,
+    aspect: string
     /** Whether to display this icon grayed out; defaults to false */
-    gray?: boolean,
+    gray?: boolean
   }>(),
   { gray: false }
 )

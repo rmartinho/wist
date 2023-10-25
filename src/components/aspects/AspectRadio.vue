@@ -25,13 +25,13 @@ const model = defineModel<string>({ local: true })
 const props = withDefaults(
   defineProps<{
     /** The aspect */
-    aspect: string,
+    aspect: string
     /** This name of the radio group this radiobutton belongs to */
-    name: string,
+    name: string
     /** Whether the radiobutton starts checked; defaults to false */
-    checked?: boolean,
+    checked?: boolean
     /** Whether make the radiobutton readonly; defaults to false */
-    readonly?: boolean,
+    readonly?: boolean
   }>(),
   { readonly: false }
 )

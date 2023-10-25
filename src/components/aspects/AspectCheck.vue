@@ -22,11 +22,11 @@ import AspectIcon from '@/components/aspects/AspectIcon.vue'
 
 const props = withDefaults(defineProps<{
   /** The aspect */
-  aspect: string,
+  aspect: string
   /** Whether make the checkbox readonly; defaults to false */
-  readonly?: boolean,
+  readonly?: boolean
   /** Whether the checkbox starts checked; defaults to false */
-  checked?: boolean,
+  checked?: boolean
 }>(),
   { readonly: false }
 )

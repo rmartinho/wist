@@ -26,9 +26,9 @@ const counts = defineModel<AspectSet>({ default: {} })
 
 const props = withDefaults(defineProps<{
   /** The aspects */
-  aspects: readonly string[],
+  aspects: readonly string[]
   /** Whether to make the counters readonly; defaults to false */
-  readonly?: boolean,
+  readonly?: boolean
 }>(),
   { readonly: false }
 )

@@ -25,7 +25,8 @@
 
   --color-text: var(--wist-c-content-3);
   
-  --color-stroke: var(--wist-c-content-3);
+  --color-stroke: var(--wist-c-content-2);
 
-  --color-warn: var(var(--wist-c-accent-1));
+  --color-warn: var(--wist-c-accent-1);
+  --color-danger: var(--wist-c-accent-3);
 }

@@ -2,5 +2,6 @@
 
 .gray-icon {
   background-image: url(@/assets/images/gray-sprites.png);
-  filter: var(--light, invert(70%)) var(--dark, invert(30%));
+  filter: var(--light, invert(46%) sepia(4%) saturate(1878%) hue-rotate(150deg) brightness(99%) contrast(81%)) /* --solarized-c-base00 */
+          var(--dark, invert(62%) sepia(6%) saturate(533%) hue-rotate(138deg) brightness(90%) contrast(96%));  /* --solarized-c-base0 */
 }

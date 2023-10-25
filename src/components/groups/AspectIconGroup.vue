@@ -21,6 +21,6 @@ import AspectIcon from '@/components/aspects/AspectIcon.vue'
 
 defineProps<{
   /** The aspects */
-  aspects: readonly string[],
+  aspects: readonly string[]
 }>()
 </script>

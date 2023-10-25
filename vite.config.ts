@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import spritesmith from 'vite-plugin-spritesmith'
+import svgLoader from 'vite-svg-loader'
 
 export default defineConfig(({ command }) => ({
   resolve: {
@@ -14,6 +15,9 @@ export default defineConfig(({ command }) => ({
       script: {
         defineModel: true
       }
+    }),
+    svgLoader({
+      svgo: false,
     }),
     spritesmith({
       watch: command == 'serve',

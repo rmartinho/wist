@@ -23,7 +23,7 @@ import AspectRadio from '@/components/aspects/AspectRadio.vue'
 const value = defineModel<string>()
 
 defineProps<{
-  aspects: readonly string[],
+  aspects: readonly string[]
 }>()
 
 const name = useId('aspect-radio-')

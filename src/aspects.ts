@@ -30,6 +30,72 @@ export function makeAspectSet() {
   })
 }
 
+function asAspectSet(first: AspectSet | string | string[], ...rest: string[]): AspectSet {
+  const isArray = Array.isArray(first)
+  const isString = typeof first == 'string'
+  if (isArray || isString) {
+    const array = isArray ? first : rest
+    const result = Object.fromEntries(array.map(a => [a, 1]))
+    if (isString) {
+      result[first] = 1
+    }
+    return result
+  } else {
+    return first
+  }
+}
+
+/**
+ * Determines whether an {@link AspectSet} has enough of specific aspects
+ * @param aspects The {@link AspectSet} to test
+ * @param desired An {@link AspectSet} describing how much of each aspect is desired
+ * @returns `true` if {@link aspects} has at least as much of each aspect as {@link desired}
+ */
+export function hasAllAspects(aspects: AspectSet, desired: AspectSet): boolean
+
+/**
+ * Determines whether an {@link AspectSet} has specific aspects
+ * @param aspects The {@link AspectSet} to test
+ * @param desired An array of desired aspects
+ * @returns `true` if {@link aspects} has all aspects in {@link desired}
+ */
+export function hasAllAspects(aspects: AspectSet, ...desired: string[]): boolean
+/**
+ * Determines whether an {@link AspectSet} has specific aspects
+ * @param aspects The {@link AspectSet} to test
+ * @param desired An array of desired aspects
+ * @returns `true` if {@link aspects} has all aspects in {@link desired}
+ */
+export function hasAllAspects(aspects: AspectSet, desired: string[]): boolean
+
+export function hasAllAspects(aspects: AspectSet, desired: AspectSet | string | string[], ...rest: string[]): boolean {
+  const testSet = asAspectSet(desired, ...rest)
+  return Object.keys(desired)
+    .every(k => aspects[k] >= testSet[k])
+}
+
+/**
+ * Determines whether an {@link AspectSet} has enough of one out of specific aspects
+ * @param aspects The {@link AspectSet} to test
+ * @param desired An {@link AspectSet} describing how much of each aspect is desired
+ * @returns `true` if {@link aspects} has at least as much of one (non-zero) aspect as {@link desired}
+ */
+export function hasAnyAspect(aspects: AspectSet, desired: AspectSet): boolean
+
+/**
+ * Determines whether an {@link AspectSet} has one out of specific aspects
+ * @param aspects The {@link AspectSet} to test
+ * @param desired An array of desired aspects
+ * @returns `true` if {@link aspects} has one of the aspects in {@link desired}
+ */
+export function hasAnyAspect(aspects: AspectSet, ...desired: string[]): boolean
+
+export function hasAnyAspect(aspects: AspectSet, desired: AspectSet | string, ...rest: string[]): boolean {
+  const testSet = asAspectSet(desired, ...rest)
+  return Object.keys(desired)
+    .some(k => aspects[k] >= testSet[k])
+}
+
 /**
  * Creates a reactive object that uses an existing {@link AspectSet} as if it had boolean values
  * 

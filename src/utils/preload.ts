@@ -10,7 +10,7 @@ type PreloadAsTypes = 'audio' | 'document' | 'embed' | 'fetch' | 'font' | 'image
 export function usePreload(as: PreloadAsTypes, ...urls: string[]) {
   useHead({
     link: urls.map(href => ({
-      rel: 'preload', as, href, key: href
+      rel: 'preload', href, as, key: href
     }))
   })
 }

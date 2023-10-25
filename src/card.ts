@@ -1,4 +1,4 @@
-import { makeAspectSet, type AspectSet } from '@/aspects'
+import { makeAspectSet, type AspectSet, hasAnyAspect, principleAspects, typeAspects } from '@/aspects'
 
 /** A Book of Hours card */
 export interface Card {
@@ -34,6 +34,6 @@ export function makeCard(name: string): Card {
  * @param card The card to validate
  * @returns `true` if the card is valid; `false` otherwise
  */
-export function cardValid(card: Card): boolean {
-  return card.name.length > 0 && Object.keys(card.aspects).length > 0
+export function cardIsValid(card: Card): boolean {
+  return card.name.length > 0 && hasAnyAspect(card.aspects, ...principleAspects) && hasAnyAspect(card.aspects, ...typeAspects)
 }

@@ -20,7 +20,7 @@ const value = defineModel<AspectSet>({ required: true })
 
 const props = defineProps<{
   /** The aspect subset to display one of */
-  aspects: readonly string[],
+  aspects: readonly string[]
 }>()
 
 const selected = useOneOfAspect(props.aspects, value)
