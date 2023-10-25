@@ -6,9 +6,13 @@ for file in $*; do
 done
 
 for file in sprites/*.png; do
-	convert $file -colorspace gray -transparent grey -separate -average -auto-level sprites/gray/${file#sprites/}
+	outfile=sprites/gray/${file#sprites/}
+	convert $file -channel RGBA -colorspace gray -separate -average -auto-level $outfile
+	convert $outfile -alpha copy -channel alpha -negate +channel -fx '#000' $outfile
 done
 
 for file in sprites/*.png sprites/gray/*.png; do
 	convert $file -filter Lanczos -resize 24x24 $file
 done
+
+git checkout -- sprites

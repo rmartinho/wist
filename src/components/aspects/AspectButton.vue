@@ -47,8 +47,6 @@ button {
   margin: 0px;
   height: 24px;
   width: 24px;
-
-  transition: filter 0.4s ease;
 }
 
 button:hover:not(:disabled) {

@@ -50,11 +50,11 @@ label {
   display: inline-flex;
 }
 
-label:hover:not(.disabled) {
+label:hover:not(.disabled) :deep(img) {
   filter: drop-shadow(0 0 2px);
 }
 
-label:active:not(.disabled) {
+label:active:not(.disabled) :deep(img) {
   filter: drop-shadow(0 0 1px);
 }
 </style>

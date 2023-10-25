@@ -2,4 +2,5 @@
 
 .gray-icon {
   background-image: url(@/assets/images/gray-sprites.png);
+  filter: var(--light, invert(70%)) var(--dark, invert(30%));
 }
