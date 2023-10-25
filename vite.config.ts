@@ -4,7 +4,6 @@ import vue from '@vitejs/plugin-vue'
 import spritesmith from 'vite-plugin-spritesmith';
 
 export default defineConfig(({ command }) => ({
-  base: '/wist/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
