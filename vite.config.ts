@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
-import spritesmith from 'vite-plugin-spritesmith';
+import spritesmith from 'vite-plugin-spritesmith'
 
 export default defineConfig(({ command }) => ({
   resolve: {

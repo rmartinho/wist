@@ -1,2 +1,3 @@
 /// <reference types="vite/client" />
-/// <reference types="vite-plugin-spritesmith" />
+
+declare module 'vite-plugin-spritesmith'

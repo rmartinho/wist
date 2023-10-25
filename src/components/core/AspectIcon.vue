@@ -16,6 +16,11 @@ export default {}
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import { usePreload } from '@/utils/preload'
+import colorSprites from '@/assets/images/color-sprites.png?url'
+import graySprites from '@/assets/images/gray-sprites.png?url'
+usePreload('image', colorSprites, graySprites)
+
 const props = withDefaults(
   defineProps<{
     /** The aspect */
