@@ -1,13 +1,14 @@
-<!--
-  A group of aspect-based components organized in rows.
-
-  Usage:
-    import AspectComponentGroup from 'AspectComponentGroup.vue'
-
-    <aspect-component-group :aspects="['lantern', 'forge', 'edge']" v-slot="slot" v-bind="$attrs">
-      <aspect-icon :aspect="slot.aspect" />
-    </aspect-component-group>
--->
+<script lang="ts">
+/**
+ * A group of aspect-based components organized in rows.
+ * 
+ * @example
+ * <aspect-component-group :aspects="['lantern', 'forge', 'edge']" v-slot="slot" v-bind="$attrs">
+ *   <aspect-icon v-bind="slot" :aspect="slot.aspect" />
+ * </aspect-component-group>
+ */
+ export default {}
+</script>
 
 <template>
   <div class="aspect-group">
@@ -22,10 +23,12 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /** The aspects */
     aspects: readonly string[],
+    /** The maximum number of components per row; defaults to 8 */
     rowSize?: number,
   }>(),
-  { rowSize: 9 }
+  { rowSize: 8 }
 )
 
 const nCols = computed(() => Math.min(props.aspects.length, props.rowSize))

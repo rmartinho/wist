@@ -1,16 +1,16 @@
-<!--
-  A counter with an associated aspect.
-
-  If not readonly it can be left-clicked to increase the count, right-clicked to decrease,
-  and middle-clicked to set to zero
-
-  Usage:
-    import AspectCounter from 'AspectCounter.vue'
-
-    <aspect-counter aspect="lantern" />
-    <aspect-counter aspect="forge" count="3" />
-    <aspect-counter aspect="edge" count="2" readonly />
--->
+<script lang="ts">
+/**
+ * A counter with an associated aspect.
+ *
+ * If not readonly it can be left-clicked to increase the count, right-clicked to decrease,
+ * and middle-clicked to set to zero
+ *
+ * @example
+    <aspect-counter aspect="lantern" v-model="count" />
+    <aspect-counter aspect="edge" :model-value="2" readonly />
+ */
+export default {}
+</script>
 
 <template>
   <div class="counter">
@@ -28,7 +28,9 @@ import AspectButton from '@/components/core/AspectButton.vue'
 const count = defineModel<number>({ local: true, default: 0 })
 
 withDefaults(defineProps<{
+  /** The aspect */
   aspect: string,
+  /** Whether make the count readonly; defaults to false */
   readonly?: boolean,
 }>(),
   { readonly: false }

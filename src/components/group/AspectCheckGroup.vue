@@ -1,12 +1,13 @@
-<!--
-  A group of aspect checkboxes.
-
-  Usage:
-    import AspectCheckGroup from 'AspectCheckGroup.vue'
-
-    <aspect-check-group :aspects="['lantern', 'forge', 'edge']" />
-    <aspect-check-group :aspects="['lantern', 'forge', 'edge', 'winter']" :row-size="2" />
--->
+<script lang="ts">
+/**
+ * A group of aspect checkboxes.
+ *
+ * @example
+ * <aspect-check-group :aspects="['lantern', 'forge', 'edge']" v-model="card.aspects"/>
+ * <aspect-check-group :aspects="['lantern', 'forge', 'edge', 'winter']" :row-size="2" v-model="card.aspects" />
+ */
+export default {}
+</script>
 
 <template>
   <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
@@ -22,6 +23,7 @@ import AspectCheck from '@/components/core/AspectCheck.vue'
 const model = defineModel<AspectSet>({ default: {} })
 
 defineProps<{
+  /** The aspects */
   aspects: readonly string[],
 }>()
 

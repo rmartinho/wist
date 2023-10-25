@@ -1,45 +1,43 @@
-<!--
-  A radiobutton with an associated aspect.
-
-  Usage:
-    import AspectRadio from 'AspectRadio.vue'
-
-    const model = ref({ name: 'group1', value: 'edge' })
-
-    <aspect-radio aspect="lantern" v-model="model" />
-    <aspect-radio aspect="forge" v-model="model" />
-    <aspect-radio aspect="edge" :model-value="model" readonly />
--->
+<script lang="ts">
+/**
+ * A radiobutton with an associated aspect.
+ *
+ * @example
+ * <aspect-radio aspect="lantern" name="foo" v-model="model" />
+ * <aspect-radio aspect="forge" name="foo" v-model="model" />
+ * <aspect-radio aspect="edge" name="foo" :model-value="model" readonly />
+ */
+export default {}
+</script>
 
 <template>
   <label :class="{ disabled: readonly }">
-    <input type="radio" :name="model.name" :value="aspect" v-model="model.value" :disabled="readonly">
-    <aspect-icon :aspect="aspect" :gray="aspect != model.value" />
+    <input type="radio" :name="name" :value="aspect" v-model="model" :disabled="readonly">
+    <aspect-icon :aspect="aspect" :gray="aspect != model" />
   </label>
 </template>
 
 <script setup lang="ts">
-import AspectIcon from '@/components/core/AspectIcon.vue';
+import AspectIcon from '@/components/core/AspectIcon.vue'
 
-// Together because we don't want radios with the same name holding different values
-type Model = {
-  readonly name: string,
-  value?: string,
-}
-
-const model = defineModel<Model>({ local: true, required: true })
+const model = defineModel<string>({ local: true })
 
 const props = withDefaults(
   defineProps<{
+    /** The aspect */
     aspect: string,
+    /** This name of the radio group this radiobutton belongs to */
+    name: string,
+    /** Whether the radiobutton starts checked; defaults to false */
     checked?: boolean,
+    /** Whether make the radiobutton readonly; defaults to false */
     readonly?: boolean,
   }>(),
   { readonly: false }
 )
 
 if (props.checked) {
-  model.value.value = props.aspect
+  model.value = props.aspect
 }
 </script>
 

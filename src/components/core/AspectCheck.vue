@@ -1,13 +1,14 @@
-<!--
-  A checkbox with an associated aspect.
-
-  Usage:
-    import AspectCheck from 'AspectCheck.vue'
-
-    <aspect-check aspect="lantern" />
-    <aspect-check aspect="forge" v-model="selected" />
-    <aspect-check aspect="edge" :model-value="false" readonly />
--->
+<script lang="ts">
+/**
+ * A checkbox with an associated aspect
+ *
+ * @example
+ * <aspect-check aspect="lantern" />
+ * <aspect-check aspect="forge" v-model="selected" />
+ * <aspect-check aspect="edge" checked readonly />
+ */
+export default {}
+</script>
 
 <template>
   <label :class="{ disabled: readonly }">
@@ -20,8 +21,11 @@
 import AspectIcon from '@/components/core/AspectIcon.vue'
 
 const props = withDefaults(defineProps<{
+  /** The aspect */
   aspect: string,
+  /** Whether make the checkbox readonly; defaults to false */
   readonly?: boolean,
+  /** Whether the checkbox starts checked; defaults to false */
   checked?: boolean,
 }>(),
   { readonly: false }

@@ -1,12 +1,13 @@
-<!--
-  A button displayed as an aspect
-
-  Usage:
-    import AspectButton from 'AspectButton.vue'
-
-    <aspect-button aspect="lantern" />
-    <aspect-button aspect="forge" gray />
--->
+<script lang="ts">
+/**
+ * A button displayed as an aspect
+ *
+ * @example
+ * <aspect-button aspect="lantern" @click="onClick" />
+ * <aspect-button aspect="forge" gray />
+ */
+export default {}
+</script>
 
 <template>
   <button :class="{ [imageClass]: true, 'gray-icon': isGray }"></button>
@@ -17,7 +18,9 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /** The aspect */
     aspect: string,
+    /** Whether to display this icon grayed out; defaults to false */
     gray?: boolean,
   }>(),
   { gray: false }

@@ -1,12 +1,15 @@
-<!--
-  A group of aspect buttons.
-
-  Usage:
-    import AspectButtonGroup from 'AspectButtonGroup.vue'
-
-    <aspect-button-group :aspects="['lantern', 'forge', 'edge']" />
-    <aspect-button-group :aspects="['lantern', 'forge', 'edge', 'winter']" :row-size="2" />
--->
+<script lang="ts">
+/**
+ * A group of aspect buttons.
+ *
+ * @emits click(aspect: string): when one of the buttons is clicked; the aspect of the button is given
+ *
+ * @example
+ *   <aspect-button-group :aspects="['lantern', 'forge', 'edge']" />
+ *   <aspect-button-group :aspects="['lantern', 'forge', 'edge', 'winter']" :row-size="2" />
+*/
+export default {}
+</script>
 
 <template>
   <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
@@ -19,6 +22,7 @@ import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
 import AspectButton from '@/components/core/AspectButton.vue'
 
 defineProps<{
+  /** The aspects */
   aspects: readonly string[],
 }>()
 

@@ -1,12 +1,13 @@
-<!--
-  A group of aspect icons.
-
-  Usage:
-    import AspectIconGroup from 'AspectIconGroup.vue'
-
-    <aspect-icon-group :aspects="['lantern', 'forge', 'edge']" />
-    <aspect-icon-group :aspects="['lantern', 'forge', 'edge', 'winter']" :row-size="2" />
--->
+<script lang="ts">
+/**
+ * A group of aspect icons.
+ *
+ * @example
+ * <aspect-icon-group :aspects="['lantern', 'forge', 'edge']" />
+ * <aspect-icon-group :aspects="['lantern', 'forge', 'edge', 'winter']" :row-size="2" />
+ */
+export default {}
+</script>
 
 <template>
   <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
@@ -19,6 +20,7 @@ import AspectComponentGroup from '@/components/group/AspectComponentGroup.vue'
 import AspectIcon from '@/components/core/AspectIcon.vue'
 
 defineProps<{
+  /** The aspects */
   aspects: readonly string[],
 }>()
 </script>

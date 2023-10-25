@@ -1,37 +1,40 @@
-<!--
-  A component that displays and allows editing a card
-
-  Usage:
-    import CardView from 'CardView.vue'
-
-    <card-view v-model="card" />
-    <card-view v-model="card" readonly />
--->
+<script lang="ts">
+/**
+ * A component that displays and allows editing a card
+ * 
+ * @example
+ * <card-view v-model="card" />
+ * <card-view v-model="card" readonly />
+ */
+export default {}
+</script>
 
 <template>
   <div class="card">
     <template v-if="readonly">
       <span class="name">{{ card.name ? card.name : '<missing name>' }}</span>
-      <type-icon :aspects="card.aspects" />
-      <principle-counter-group v-model="card.aspects" readonly />
+      <one-of-aspect-icon :aspects="typeAspects" :value="card.aspects" />
+      <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" readonly />
     </template>
     <template v-else>
       <input type="text" v-focus v-model="card.name" placeholder="Card name">
-      <type-radio-group v-model="card.aspects" />
-      <principle-counter-group v-model="card.aspects" />
+      <aspect-subset-radio-group :aspects="typeAspects" v-model="card.aspects" />
+      <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
+import { principleAspects, typeAspects } from '@/aspects'
 import { type Card } from '@/card'
-import PrincipleCounterGroup from '@/components/group/PrincipleCounterGroup.vue'
-import TypeRadioGroup from '@/components/group/TypeRadioGroup.vue'
-import TypeIcon from '@/components/core/TypeIcon.vue'
+import AspectCounterGroup from '@/components/group/AspectCounterGroup.vue'
+import AspectSubsetRadioGroup from '@/components/group/AspectSubsetRadioGroup.vue'
+import OneOfAspectIcon from '@/components/core/OneOfAspectIcon.vue'
 
 const card = defineModel<Card>({ required: true })
 
 withDefaults(defineProps<{
+  /** Whether this view is readonly; defaults to `false` */
   readonly?: boolean
 }>(),
   { readonly: false }

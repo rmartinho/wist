@@ -1,15 +1,14 @@
-<!--
-  A group of aspect counters. When read-only the counters are sorted and filtered.
-
-  Usage:
-    import AspectCounterGroup from 'AspectCounterGroup.vue'
-
-    const aspects = { lantern:3, forge: 1, knock: 4 }
-
-    <aspect-counter-group :aspects="['lantern', 'forge', 'edge']" v-model="aspects" />
-    <aspect-counter-group :aspects="['lantern', 'forge', 'edge', 'winter']" v-model="aspects" :row-size="2" />
-    <aspect-counter-group :aspects="['lantern', 'forge', 'edge']" v-model="aspects" readonly/>
--->
+<script lang="ts">
+/**
+ * A group of aspect counters
+ *
+ * @example
+ * <aspect-counter-group :aspects="['lantern', 'forge', 'edge']" v-model="card.aspects" />
+ * <aspect-counter-group :aspects="['lantern', 'forge', 'edge', 'winter']" v-model="card.aspects" :row-size="2" />
+ * <aspect-counter-group :aspects="['lantern', 'forge', 'edge']" v-model="card.aspects" readonly/>
+ */
+export default {}
+</script>
 
 <template>
   <aspect-component-group :aspects="filteredAspects" v-slot="slot" v-bind="$attrs">
@@ -26,7 +25,9 @@ import AspectCounter from '@/components/core/AspectCounter.vue'
 const counts = defineModel<AspectSet>({ default: {} })
 
 const props = withDefaults(defineProps<{
+  /** The aspects */
   aspects: readonly string[],
+  /** Whether to make the counters readonly; defaults to false */
   readonly?: boolean,
 }>(),
   { readonly: false }

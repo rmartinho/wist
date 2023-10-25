@@ -1,12 +1,13 @@
-<!--
-  An icon indicating an aspect
-
-  Usage:
-    import AspectIcon from 'AspectIcon.vue'
-
-    <aspect-icon aspect="lantern" />
-    <aspect-icon aspect="forge" gray />
--->
+<script lang="ts">
+/**
+ * An icon displayed as an aspect
+ *
+ * @example
+ * <aspect-icon aspect="lantern" />
+ * <aspect-icon aspect="forge" gray />
+ */
+export default {}
+</script>
 
 <template>
   <img :class="{ [imageClass]: true, 'gray-icon': isGray }" src="@/assets/images/blank.gif">
@@ -17,7 +18,9 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
+    /** The aspect */
     aspect: string,
+    /** Whether to display this icon grayed out; defaults to false */
     gray?: boolean,
   }>(),
   { gray: false }
