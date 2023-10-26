@@ -1,8 +1,10 @@
 <template>
-  <button @click="cards.unshift(makeCard())">
-    <add-icon />
-  </button>
-  <card-list v-model="cards" mode="edit" @save="onChange" @remove="onChange" />
+  <div class="list">
+    <button @click="cards.unshift(makeCard())">
+      <add-icon />
+    </button>
+    <card-list v-model="cards" mode="edit" @save="onChange" @remove="onChange" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -26,17 +28,20 @@ function load(): Card[] {
 
 const cards = ref(load())
 
-function onChange(_card: Card) {
+function onChange() {
   writeJsonToStorage(window.localStorage, storageKey, cards.value)
 }
 </script>
 
 <style scoped>
-hr {
-  margin: 8px;
+.list {
+  display: flex;
+  gap: 2px;
+  flex-flow: column;
 }
 
 button {
+  margin-left: 4px;
   width: 24px;
 }
 </style>
