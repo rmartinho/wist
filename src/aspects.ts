@@ -6,7 +6,7 @@ export const principleAspects = ['lantern', 'forge', 'edge', 'winter', 'heart', 
 export type PrincipleAspect = typeof principleAspects[number]
 
 /** An array of all the aspects that denote the main card types */
-export const typeAspects = ['soul', 'skill', 'memory', 'readable', 'thing'] as const
+export const typeAspects = ['soul', 'skill', 'memory', 'thing', 'room', 'workstation'] as const
 /** The type of aspects that denote the main card types */
 export type TypeAspect = typeof typeAspects[number]
 

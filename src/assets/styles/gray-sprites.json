@@ -287,6 +287,14 @@
                 "w": 24,
                 "h": 24
             }
+        },
+        "workstation": {
+            "frame": {
+                "x": 144,
+                "y": 0,
+                "w": 24,
+                "h": 24
+            }
         }
     },
     "meta": {
@@ -295,7 +303,7 @@
         "image": "./src/assets/images/gray-sprites.png",
         "scale": 1,
         "size": {
-            "w": 144,
+            "w": 168,
             "h": 144
         }
     }

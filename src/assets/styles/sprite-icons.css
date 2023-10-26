@@ -232,3 +232,9 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 24px;
   height: 24px;
 }
+.icon-workstation {
+  background-image: url(@/assets/images/color-sprites.png);
+  background-position: -144px 0px;
+  width: 24px;
+  height: 24px;
+}
