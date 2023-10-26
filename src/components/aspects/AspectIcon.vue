@@ -34,7 +34,6 @@ const imageClass = computed(() => `icon-${props.aspect}`)
 @import '@/assets/styles/sprites.css';
 
 img {
-  display: inline-block;
   padding: 0px;
   margin: 0px;
   height: 24px;

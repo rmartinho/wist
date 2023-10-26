@@ -56,18 +56,14 @@ function zero() {
 <style scoped>
 .counter {
   display: flex;
-  width: min-content;
-  min-width: calc(24px + 1.2em);
   gap: 1px;
 }
 
 .count {
   font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  flex-direction: column;
+  min-width: 1.4em;
+  justify-self: flex-start;
+  align-self: center;
   user-select: none;
 }
 

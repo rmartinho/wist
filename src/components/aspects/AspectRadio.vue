@@ -47,7 +47,7 @@ input[type=radio] {
 }
 
 label {
-  display: inline-flex;
+  display: flex;
 }
 
 label:hover:not(.disabled) :deep(img) {

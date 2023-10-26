@@ -16,13 +16,11 @@ export default {}
 </script>
 
 <template>
-  <div class="card-list">
-    <ul>
-      <li v-for="(card, index) in cards" :key="card.id">
-        <card-list-item v-model="cards[index]" v-on="itemEventsFor(card)" :mode="itemMode" :selected="selected == card" />
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li v-for="(card, index) in cards" :key="card.id">
+      <card-list-item v-model="cards[index]" v-on="itemEventsFor(card)" :mode="itemMode" :selected="selected == card" />
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
@@ -75,23 +73,14 @@ function onSelectCard(card: Card) {
 </script>
 
 <style scoped>
-.card-list {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
 ul {
-  display: inline-grid;
-  grid: auto-flow / masonry;
+  display: flex;
+  flex-flow: row wrap;
   gap: 2px;
   padding: 0;
 }
 
 li {
-  display: inline-grid;
-  width: min-content;
   list-style: none;
-  align-items: start;
 }
 </style>

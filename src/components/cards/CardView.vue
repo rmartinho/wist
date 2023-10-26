@@ -12,12 +12,14 @@ export default {}
 <template>
   <div class="card">
     <template v-if="readonly">
-      <span class="name">{{ card.name ? card.name : '<missing name>' }}</span>
+      <div class="name">
+        <span v-text="card.name ?? '<missing name>'"></span>
+      </div>
       <one-of-aspect-icon :aspects="typeAspects" :value="card.aspects" />
       <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" readonly />
     </template>
     <template v-else>
-      <input type="text" v-focus v-model="card.name" placeholder="Card name">
+      <input class="name" type="text" v-focus="card.name.length == 0" v-model="card.name" placeholder="Card name">
       <aspect-subset-radio-group :aspects="typeAspects" v-model="card.aspects" />
       <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" />
     </template>
@@ -44,13 +46,16 @@ withDefaults(defineProps<{
 <style scoped>
 .card {
   display: flex;
-  flex-direction: column;
-  min-width: 128px;
-  max-width: max-content;
+  flex-flow: column;
   gap: 4px;
+  min-width: 128px;
 }
 
 .name {
+  padding: 0.1rem;
+}
+
+div.name {
   max-width: 23em;
 }
 </style>

@@ -24,9 +24,9 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     /** The aspects */
-    aspects: readonly string[]
+    aspects: readonly string[],
     /** The maximum number of components per row; defaults to 8 */
-    rowSize?: number
+    rowSize?: number,
   }>(),
   { rowSize: 8 }
 )
@@ -36,9 +36,8 @@ const nCols = computed(() => Math.min(props.aspects.length, props.rowSize))
 
 <style scoped>
 .aspect-group {
-  display: inline-grid;
+  display: grid;
   grid: auto-flow / repeat(v-bind(nCols), min-content);
-  height: min-content;
   gap: 2px;
 }
 </style>

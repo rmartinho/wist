@@ -9,6 +9,10 @@
   font-weight: normal;
 }
 
+:root {
+  --width-input-border: 1px;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text);
@@ -35,7 +39,7 @@ button {
 }
 
 button:disabled {
-  filter: grayscale(100%) opacity(50%);
+  filter: grayscale(100%) opacity(30%);
 }
 
 button:hover:not(:disabled) {
@@ -48,12 +52,9 @@ button:active:not(:disabled) {
 
 input[type=text] {
   outline: none;
-  border-style: dotted;
-  border-color: var(--color-border);
-  border-width: 1px;
-  border-radius: 2px;
-  height: 24px;
-  background-color: var(--color-background);
+  border: none;
+  font-size: 15px;
+  background-color: var(--color-background-soft);
   color: var(--color-text);
 }
 

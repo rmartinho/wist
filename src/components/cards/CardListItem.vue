@@ -113,8 +113,7 @@ function onStopRemove() {
 }
 
 .item.selected {
-  border: solid 1px;
-  box-shadow: 2px;
+  box-shadow: 0 0 2px 2px;
 }
 
 .danger :deep(svg) {
@@ -124,13 +123,12 @@ function onStopRemove() {
 
 .buttons {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   align-self: flex-start;
   gap: 2px;
 }
 
 button {
   width: 24px;
-  height: 24px;
 }
 </style>

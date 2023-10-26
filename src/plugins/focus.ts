@@ -1,4 +1,4 @@
-import type { App } from 'vue'
+import type { App, DirectiveBinding } from 'vue'
 
 /**
  * Vue plugin to automatically focus a component upon mounting
@@ -13,11 +13,13 @@ import type { App } from 'vue'
 export default {
   install(app: App) {
     app.directive('focus', {
-      mounted: (el: HTMLInputElement) => {
-        if (el.getAttribute('tabindex') == null) {
-          el.setAttribute('tabindex', '-1')
+      mounted: (el: HTMLInputElement, binding: DirectiveBinding<boolean | undefined>) => {
+        if (binding.value ?? true) {
+          if (el.getAttribute('tabindex') == null) {
+            el.setAttribute('tabindex', '-1')
+          }
+          el.focus()
         }
-        el.focus()
       }
     })
   }
