@@ -1,18 +1,13 @@
 <template>
-  <card-list-item v-model="card" />
-  <hr />
-  <card-list-item v-model="card" mode="view" />
-  <hr />
-  <card-list-item v-model="card" mode="select" />
-  <card-list-item v-model="card" mode="select" />
+  <card-list v-model="cards" mode="edit"/>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { makeCard } from '@/card'
-import CardListItem from '@/components/cards/CardListItem.vue'
+import CardList from '@/components/cards/CardList.vue'
 
-const card = ref(makeCard(''))
+const cards = ref([makeCard(), makeCard()])
 </script>
 
 <style scoped>

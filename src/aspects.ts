@@ -70,7 +70,7 @@ export function hasAllAspects(aspects: AspectSet, desired: string[]): boolean
 
 export function hasAllAspects(aspects: AspectSet, desired: AspectSet | string | string[], ...rest: string[]): boolean {
   const testSet = asAspectSet(desired, ...rest)
-  return Object.keys(desired)
+  return Object.keys(testSet)
     .every(k => aspects[k] >= testSet[k])
 }
 
@@ -92,7 +92,7 @@ export function hasAnyAspect(aspects: AspectSet, ...desired: string[]): boolean
 
 export function hasAnyAspect(aspects: AspectSet, desired: AspectSet | string, ...rest: string[]): boolean {
   const testSet = asAspectSet(desired, ...rest)
-  return Object.keys(desired)
+  return Object.keys(testSet)
     .some(k => aspects[k] >= testSet[k])
 }
 

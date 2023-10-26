@@ -25,7 +25,7 @@ export default {}
 import AspectIcon from '@/components/aspects/AspectIcon.vue'
 import AspectButton from '@/components/aspects/AspectButton.vue'
 
-const count = defineModel<number>('count', { local: true, default: 0 })
+const count = defineModel<number>({ local: true, default: 0 })
 
 withDefaults(defineProps<{
   /** The aspect */

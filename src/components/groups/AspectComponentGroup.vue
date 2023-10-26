@@ -36,9 +36,8 @@ const nCols = computed(() => Math.min(props.aspects.length, props.rowSize))
 
 <style scoped>
 .aspect-group {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template: auto / repeat(v-bind(nCols), min-content);
+  display: inline-grid;
+  grid: auto-flow / repeat(v-bind(nCols), min-content);
   height: min-content;
   gap: 2px;
 }

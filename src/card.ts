@@ -10,7 +10,7 @@ export interface Card {
   aspects: AspectSet
 }
 
-let id = 0
+let latestId = 0
 
 /**
  * Creates a new card with a unique ID and an aspects object that clean unused entries automatically 
@@ -18,11 +18,14 @@ let id = 0
  * @param name The card's name
  * @returns A new card with the given name
 */
-export function makeCard(name: string): Card {
+export function makeCard(options: Partial<Card> = {}): Card {
+  if (options.id && options.id > latestId) {
+    latestId = options.id
+  }
   return {
-    id: id++,
-    name,
-    aspects: makeAspectSet(),
+    id: latestId++,
+    name: options.name ?? '',
+    aspects: Object.assign(makeAspectSet(), options.aspects ?? {}),
   }
 }
 

@@ -2,22 +2,18 @@
 /**
  * A card view designed to be shown in a list
  * 
- * @emits edit(editing: boolean) when editing starts or ends
  * @emits save() when changes to the card are saved 
  * @emits remove() when the card is to be removed
  * 
  * @example
- * <card-list-item v-model="card" />
- * 
+ * <card-list-item v-model="card" mode="edit" />
  * <card-list-item v-model="card" mode="view" />
- * 
- * <card-list-item v-model="card" mode="select" />
  */
 export default {}
 </script>
 
 <template>
-  <div class="item" :class="{ selected }" v-on="selectMode ? { click: onSelect } : {}">
+  <div class="item" :class="{ selected }">
     <div v-if="editMode" class="buttons">
       <button v-if="editing" title="Save" :disabled="!isValid" @click="onSave">
         <save-icon />
@@ -33,12 +29,12 @@ export default {}
         <cancel-icon />
       </button>
     </div>
-    <card-view v-model="card" :readonly="!editMode" />
+    <card-view v-model="card" :readonly="!editing" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { useRevertableRef } from '@/utils/revert'
 import { hasAnyAspect, principleAspects } from '@/aspects'
 import { cardIsValid, type Card } from '@/card'
@@ -49,27 +45,24 @@ import CancelIcon from '@/assets/images/cancel.svg?component'
 import RemoveIcon from '@/assets/images/remove.svg?component'
 
 const model = defineModel<Card>({ required: true })
-const selected = defineModel<boolean>('selected', { local: true, required: false })
 const card = useRevertableRef(model)
 
 const props = withDefaults(defineProps<{
-  /** Whether to show edit controls, selection controls, or just display the item */
-  mode?: 'edit' | 'select' | 'view'
+  /** Whether to show edit controls, or just display the item */
+  mode?: 'view' | 'edit'
+  selected?: boolean
 }>(),
-  { mode: 'edit' }
+  { mode: 'view', selected: false }
 )
 
 const emit = defineEmits<{
-  edit: [editing: boolean]
   save: []
   remove: []
 }>()
 
 const editMode = computed(() => props.mode == 'edit')
-const selectMode = computed(() => props.mode == 'select')
 
 const editing = ref(props.mode == 'edit' && !hasAnyAspect(card.value.aspects, ...principleAspects))
-watch(editing, () => emit('edit', editing.value))
 
 const removing = ref(false)
 
@@ -106,10 +99,6 @@ function onRemove() {
 function onStopRemove() {
   removing.value = false
 }
-
-function onSelect() {
-  selected.value = !selected.value
-}
 </script>
 
 <style scoped>
@@ -125,6 +114,7 @@ function onSelect() {
 
 .item.selected {
   border: solid 1px;
+  box-shadow: 2px;
 }
 
 .danger :deep(svg) {

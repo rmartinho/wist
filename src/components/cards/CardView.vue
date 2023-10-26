@@ -45,6 +45,7 @@ withDefaults(defineProps<{
 .card {
   display: flex;
   flex-direction: column;
+  min-width: 128px;
   max-width: max-content;
   gap: 4px;
 }
