@@ -1,3 +1,4 @@
+import { writeJsonToStorage } from '@/utils/storage'
 import { type Ref, watch, type WatchStopHandle } from 'vue'
 
 /**
@@ -38,5 +39,10 @@ export function usePersistence<T>(r: Ref<T>, storage: Storage, key: string): Wat
 export function usePersistence<T>(r: Ref<T>, keyOrStorage: string | Storage, maybeKey?: string): WatchStopHandle {
   const [storage, key] = typeof keyOrStorage == 'string' ? [window.localStorage, keyOrStorage] : [keyOrStorage, maybeKey!]
 
-  return watch(r, () => storage.setItem(key, JSON.stringify(r.value)), { immediate: true })
+  return watch(r,
+    () => writeJsonToStorage(storage, key, r.value),
+    {
+      deep: true,
+      immediate: true
+    })
 }

@@ -37,6 +37,12 @@ export function makeCard(options: Partial<Card> = {}): Card {
  * @param card The card to validate
  * @returns `true` if the card is valid; `false` otherwise
  */
-export function cardIsValid(card: Card): boolean {
-  return card.name.length > 0 && hasAnyAspect(card.aspects, ...principleAspects) && hasAnyAspect(card.aspects, ...typeAspects)
+export function cardIsValid(card: any): card is Card {
+  return typeof card == 'object'
+    && typeof card.id == 'number'
+    && typeof card.name == 'string'
+    && typeof card.aspects == 'object'
+    && card.name.length > 0
+    && hasAnyAspect(card.aspects, ...principleAspects)
+    && hasAnyAspect(card.aspects, ...typeAspects)
 }

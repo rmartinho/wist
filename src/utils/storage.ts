@@ -30,6 +30,20 @@ export function parseJsonFromStorage<T>(storage: Storage, key: string, validator
   if (validator(parsed)) {
     return parsed
   } else {
-    window.localStorage.removeItem(key)
+    storage.removeItem(key)
   }
+}
+
+/**
+ * Writes a JSON representation of an object to {@link Storage}
+ * @param storage The {@link Storage} to use
+ * @param key The storage key of the item
+ * @param value The value to write
+ * 
+ * @example
+ * writeJsonToStorage(window.localStorage, 'n', 17)
+ */
+export function writeJsonToStorage<T>(storage: Storage, key: string, value: T): void {
+  const json = JSON.stringify(value)
+  storage.setItem(key, json)
 }
