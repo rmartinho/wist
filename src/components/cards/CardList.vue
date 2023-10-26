@@ -17,14 +17,9 @@ export default {}
 
 <template>
   <div class="card-list">
-    <div v-if="editMode" class="buttons">
-      <button class="add-button" @click="onAddCard?.()" title="Add">
-        <add-icon />
-      </button>
-    </div>
     <ul>
       <li v-for="(card, index) in cards" :key="card.id">
-        <card-list-item v-model="cards[index]" v-on="eventsFor(card)" :mode="itemMode" :selected="selected == card" />
+        <card-list-item v-model="cards[index]" v-on="itemEventsFor(card)" :mode="itemMode" :selected="selected == card" />
       </li>
     </ul>
   </div>
@@ -32,9 +27,8 @@ export default {}
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { makeCard, type Card } from '@/card'
+import { type Card } from '@/card'
 import CardListItem from '@/components/cards/CardListItem.vue'
-import AddIcon from '@/assets/images/add.svg'
 
 const cards = defineModel<Card[]>({ default: [] })
 const selected = defineModel<Card>('selected', { local: true })
@@ -55,7 +49,7 @@ const emit = defineEmits<{
 const editMode = computed(() => props.mode == 'edit')
 const selectMode = computed(() => props.mode == 'select')
 const itemMode = computed(() => props.mode == 'edit' ? 'edit' : 'view')
-const eventsFor = computed(() => {
+const itemEventsFor = computed(() => {
   return editMode.value ? (card: Card) => ({
     save() { onSaveCard(card) },
     remove() { onRemoveCard(card.id) }
@@ -63,12 +57,6 @@ const eventsFor = computed(() => {
     click() { onSelectCard(card) }
   }) : (_card: Card) => { }
 })
-
-let id = Math.max(0, ...cards.value.map(c => c.id)) + 1 // TODO force ids!!
-
-function onAddCard() {
-  cards.value.unshift(makeCard())
-}
 
 function onRemoveCard(id: number) {
   const index = cards.value.findIndex(c => c.id == id)
@@ -87,6 +75,12 @@ function onSelectCard(card: Card) {
 </script>
 
 <style scoped>
+.card-list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 ul {
   display: inline-grid;
   grid: auto-flow / masonry;
@@ -98,5 +92,6 @@ li {
   display: inline-grid;
   width: min-content;
   list-style: none;
+  align-items: start;
 }
 </style>
