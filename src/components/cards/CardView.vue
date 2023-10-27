@@ -21,12 +21,22 @@ export default {}
           <component v-if="extrasView" :is="extrasView" readonly v-model="card.aspects" v-model:source="card.source" />
         </div>
       </div>
-      <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" readonly />
+      <template v-if="!isWorkstation">
+        <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" readonly />
+      </template>
+      <template v-else>
+        <aspect-subset-icon-group :aspects="principleAspects" :value="card.aspects" />
+      </template>
     </template>
     <template v-else>
       <input type="text" v-focus="card.name.length == 0" v-model="card.name" placeholder="Card name">
       <aspect-subset-radio-group :aspects="typeAspects" v-model="card.aspects" />
-      <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" />
+      <template v-if="!isWorkstation">
+        <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" />
+      </template>
+      <template v-else>
+        <aspect-check-group :aspects="principleAspects" v-model="card.aspects" />
+      </template>
       <component v-if="extrasView" :is="extrasView" v-model="card.aspects" v-model:source="card.source" />
     </template>
   </div>
@@ -37,11 +47,14 @@ import { computed, watch } from 'vue'
 import { extraAspects, principleAspects, typeAspects, useOneOfAspect } from '@/aspects'
 import { type Card } from '@/card'
 import AspectCounterGroup from '@/components/groups/AspectCounterGroup.vue'
+import AspectCheckGroup from '@/components/groups/AspectCheckGroup.vue'
+import AspectSubsetIconGroup from '@/components/groups/AspectSubsetIconGroup.vue'
 import AspectSubsetRadioGroup from '@/components/groups/AspectSubsetRadioGroup.vue'
 import OneOfAspectIcon from '@/components/aspects/OneOfAspectIcon.vue'
 import MemoryExtrasView from '@/components/cards/extras/MemoryExtrasView.vue'
 import SkillExtrasView from '@/components/cards/extras/SkillExtrasView.vue'
 import ThingExtrasView from '@/components/cards/extras/ThingExtrasView.vue'
+import WorkstationExtrasView from '@/components/cards/extras/WorkstationExtrasView.vue'
 
 const card = defineModel<Card>({ required: true })
 
@@ -58,10 +71,11 @@ const extrasViews = {
   memory: MemoryExtrasView,
   thing: ThingExtrasView,
   room: undefined,
-  workstation: undefined,
+  workstation: WorkstationExtrasView,
 } as any
 
 const cardType = useOneOfAspect(typeAspects, card.value.aspects)
+const isWorkstation = computed(() => cardType.value == 'workstation')
 const extrasView = computed(() => cardType.value ? extrasViews[cardType.value] : undefined)
 
 watch(extrasView, () => {
