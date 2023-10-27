@@ -10,6 +10,50 @@ export const typeAspects = ['soul', 'skill', 'memory', 'thing', 'room', 'worksta
 /** The type of aspects that denote the main card types */
 export type TypeAspect = typeof typeAspects[number]
 
+/** An array of all the aspects that denote wisdoms */
+export const wisdomAspects = ['illumination', 'hushery', 'nyctodromy', 'skolekosophy', 'bosk', 'preservation', 'birdsong', 'horomachistry', 'ithastry'] as const
+/** The type of aspects that denote wisdoms */
+export type WisdomAspect = typeof wisdomAspects[number]
+
+/** An array of all the aspects that denote elements of the soul */
+export const soulAspects = ['health', 'chor', 'trist', 'wist', 'phost', 'mettle', 'fet', 'shapt', 'ereb'] as const
+/** The type of aspects that denote elements of the soul */
+export type SoulAspect = typeof soulAspects[number]
+/** An array of all the aspects that denote attunements */
+export const attunementAspects = [...soulAspects, 'fulfilled'] as const
+/** The type of aspects that denote attunements */
+export type AttunementAspect = typeof attunementAspects[number]
+
+/** An object with arrays of the elements of the soul that can be attuned to each wisdom */
+export const attunements = {
+  illumination: ['phost', 'mettle'],
+  horomachistry: ['mettle', 'fet'],
+  nyctodromy: ['fet', 'shapt'],
+  skolekosophy: ['shapt', 'ereb'],
+  bosk: ['ereb', 'health'],
+  preservation: ['health', 'chor'],
+  birdsong: ['chor', 'trist'],
+  hushery: ['trist', 'wist'],
+  ithastry: ['wist', 'phost'],
+} as Record<WisdomAspect, [SoulAspect, SoulAspect]>
+
+/** An array of all the aspects that denote cleansing skills */
+export const cleanseAspects = ['cleanse-infestations', 'cleanse-curses', 'cleanse-corruption', 'cleanse-theoplasma'] as const
+/** The type of aspects that denote cleansing skills */
+export type CleanseAspect = typeof cleanseAspects[number]
+
+/** An object with arrays of all additional aspects of each main card type  */
+export const extraAspects = {
+  soul: [],
+  skill: ['language', 'chandlery'],
+  memory: ['weather', 'omen', 'persistent'],
+  thing: ['tool', 'beverage', 'sustenance', 'metal', 'wood', 'fabric', 'candle', 'fuel', 'flower', 'pigment'],
+  room: [],
+  workstation: [],
+} as const
+/** The type of the additional aspects for a given card type */
+export type ExtraAspects<T extends keyof typeof extraAspects> = Partial<Record<typeof extraAspects[T][number], boolean>>
+
 /** A set of aspects mapped to their values */
 export interface AspectSet extends Record<string, number> { }
 
@@ -30,7 +74,14 @@ export function makeAspectSet() {
   })
 }
 
-function asAspectSet(first: AspectSet | string | string[], ...rest: string[]): AspectSet {
+// Workaround for for https://github.com/microsoft/TypeScript/issues/17002
+declare global {
+  interface ArrayConstructor {
+      isArray(arg: ReadonlyArray<any> | any): arg is ReadonlyArray<any>
+  }
+}
+
+function asAspectSet(first: AspectSet | string | readonly string[], ...rest: readonly string[]): AspectSet {
   const isArray = Array.isArray(first)
   const isString = typeof first == 'string'
   if (isArray || isString) {
@@ -113,6 +164,8 @@ export function useBooleanAspects(aspects: MaybeRefOrGetter<AspectSet>): Ref<Rec
   }) as unknown as Record<string, boolean>)
 }
 
+type StringSubset<T> = Exclude<string, T> | string
+
 /**
  * Creates a reactive string object that sets/unsets a single one out of a group of aspects
  * 
@@ -120,7 +173,7 @@ export function useBooleanAspects(aspects: MaybeRefOrGetter<AspectSet>): Ref<Rec
  * @param aspects The {@link AspectSet} object to set/unset values in
  * @returns A reactive string that tracks which one of the `keys` in `aspects` is set 
  */
-export function useOneOfAspect(keys: readonly string[], aspects: MaybeRefOrGetter<AspectSet>): Ref<string | undefined> {
+export function useOneOfAspect<T extends StringSubset<T>>(keys: readonly T[], aspects: MaybeRefOrGetter<AspectSet>): Ref<T | undefined> {
   const single = computed({
     get() {
       return keys.find(a => toValue(aspects)[a] > 0)

@@ -1,16 +1,17 @@
 @import '@/assets/styles/dark-mode.css';
 @import '@/assets/styles/colors.css';
 
+:root {
+  --width-input-border: 1px;
+  --padding-input: 0.1rem;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
-}
-
-:root {
-  --width-input-border: 1px;
 }
 
 body {
@@ -54,6 +55,7 @@ input[type=text] {
   outline: none;
   border: none;
   font-size: 15px;
+  padding: var(--padding-input);
   background-color: var(--color-background-soft);
   color: var(--color-text);
 }

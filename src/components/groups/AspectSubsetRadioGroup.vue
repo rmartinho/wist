@@ -9,7 +9,7 @@ export default {}
 </script>
 
 <template>
-  <aspect-radio-group :aspects="aspects" v-model="selected" />
+  <aspect-radio-group :aspects="aspects" v-model="selected" v-bind="$attrs" />
 </template>
 
 <script setup lang="ts">

@@ -53,7 +53,7 @@ const itemEventsFor = computed(() => {
     remove() { onRemoveCard(card.id) }
   }) : selectMode.value ? (card: Card) => ({
     click() { onSelectCard(card) }
-  }) : (_card: Card) => { }
+  }) : () => ({})
 })
 
 function onRemoveCard(id: number) {

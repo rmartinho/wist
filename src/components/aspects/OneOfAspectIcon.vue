@@ -12,7 +12,7 @@ export default {}
 </script>
 
 <template>
-  <aspect-icon :aspect="value" v-bind="$attrs" />
+  <aspect-icon v-if="value" :aspect="value" v-bind="$attrs" />
 </template>
 
 <script setup lang="ts">
@@ -27,7 +27,5 @@ const props = defineProps<{
   value: AspectSet
 }>()
 
-const value = computed(() => {
-  return props.aspects.find(a => props.value[a] > 0) ?? 'undefined'
-})
+const value = computed(() => props.aspects.find(a => props.value[a] != undefined && props.value[a] > 0))
 </script>

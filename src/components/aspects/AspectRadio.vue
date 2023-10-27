@@ -1,6 +1,8 @@
 <script lang="ts">
 /**
  * A radiobutton with an associated aspect.
+ * 
+ * @emits deselect() when this button is explicitly deselected, if optional
  *
  * @example
  * <aspect-radio aspect="lantern" name="foo" v-model="model" />
@@ -12,15 +14,15 @@ export default {}
 
 <template>
   <label :class="{ disabled: readonly }">
-    <input type="radio" :name="name" :value="aspect" v-model="model" :disabled="readonly">
-    <aspect-icon :aspect="aspect" :gray="aspect != model" />
+    <input type="radio" :name="name" :value="aspect" v-model="value" :disabled="readonly" @click="onClick">
+    <aspect-icon :aspect="aspect" :gray="aspect != value" />
   </label>
 </template>
 
 <script setup lang="ts">
 import AspectIcon from '@/components/aspects/AspectIcon.vue'
 
-const model = defineModel<string>({ local: true })
+const value = defineModel<string | undefined>()
 
 const props = withDefaults(
   defineProps<{
@@ -32,13 +34,26 @@ const props = withDefaults(
     checked?: boolean
     /** Whether make the radiobutton readonly; defaults to false */
     readonly?: boolean
+    /** Whether this radio can be deselected */
+    optional?: boolean
   }>(),
-  { readonly: false }
+  { readonly: false, optional: false }
 )
 
-if (props.checked) {
-  model.value = props.aspect
+const emit = defineEmits<{
+  deselect: []
+}>()
+
+function onClick() {
+  if (props.optional && value.value == props.aspect) {
+    emit('deselect')
+  }
 }
+
+if (props.checked) {
+  value.value = props.aspect
+}
+
 </script>
 
 <style scoped>

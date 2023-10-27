@@ -8,6 +8,8 @@ export interface Card {
   name: string
   /** The aspects of this card */
   aspects: AspectSet
+  /** The source of this card */
+  source?: string
 }
 
 let latestId = 0
@@ -26,6 +28,7 @@ export function makeCard(options: Partial<Card> = {}): Card {
     id: latestId++,
     name: options.name ?? '',
     aspects: Object.assign(makeAspectSet(), options.aspects ?? {}),
+    source: options.source,
   }
 }
 

@@ -12,26 +12,34 @@ export default {}
 <template>
   <div class="card">
     <template v-if="readonly">
-      <div class="name">
-        <span v-text="card.name ?? '<missing name>'"></span>
+      <div class="title-row">
+        <div class="name">
+          <span v-text="card.name ?? '<missing name>'"></span>
+        </div>
+        <div class="title-icons">
+          <one-of-aspect-icon :aspects="typeAspects" :value="card.aspects" />
+          <component v-if="extrasView" :is="extrasView" readonly v-model="card.aspects" v-model:source="card.source" />
+        </div>
       </div>
-      <one-of-aspect-icon :aspects="typeAspects" :value="card.aspects" />
       <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" readonly />
     </template>
     <template v-else>
-      <input class="name" type="text" v-focus="card.name.length == 0" v-model="card.name" placeholder="Card name">
+      <input type="text" v-focus="card.name.length == 0" v-model="card.name" placeholder="Card name">
       <aspect-subset-radio-group :aspects="typeAspects" v-model="card.aspects" />
       <aspect-counter-group :aspects="principleAspects" v-model="card.aspects" />
+      <component v-if="extrasView" :is="extrasView" v-model="card.aspects" v-model:source="card.source" />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { principleAspects, typeAspects } from '@/aspects'
+import { computed, watch } from 'vue'
+import { extraAspects, principleAspects, typeAspects, useOneOfAspect } from '@/aspects'
 import { type Card } from '@/card'
 import AspectCounterGroup from '@/components/groups/AspectCounterGroup.vue'
 import AspectSubsetRadioGroup from '@/components/groups/AspectSubsetRadioGroup.vue'
 import OneOfAspectIcon from '@/components/aspects/OneOfAspectIcon.vue'
+import MemoryExtrasView from '@/components/cards/extras/MemoryExtrasView.vue'
 
 const card = defineModel<Card>({ required: true })
 
@@ -41,6 +49,26 @@ withDefaults(defineProps<{
 }>(),
   { readonly: false }
 )
+
+const extrasViews = {
+  soul: undefined,
+  skill: undefined,
+  memory: MemoryExtrasView,
+  thing: undefined,
+  room: undefined,
+  workstation: undefined,
+} as any
+
+const cardType = useOneOfAspect(typeAspects, card.value.aspects)
+const extrasView = computed(() => cardType.value ? extrasViews[cardType.value] : undefined)
+
+watch(extrasView, () => {
+  if (!cardType.value) {
+    return
+  }
+  extraAspects[cardType.value].forEach(a => delete card.value.aspects[a])
+  delete card.value.source
+})
 </script>
 
 <style scoped>
@@ -48,14 +76,26 @@ withDefaults(defineProps<{
   display: flex;
   flex-flow: column;
   gap: 4px;
-  min-width: 128px;
 }
 
 .name {
-  padding: 0.1rem;
+  padding: var(--padding-input);
 }
 
 div.name {
   max-width: 23em;
+}
+
+.title-row {
+  display: flex;
+  flex-flow: row;
+  gap: 4px;
+}
+
+.title-icons {
+  justify-self: flex-end;
+  display: flex;
+  flex-flow: row;
+  gap: 4px;
 }
 </style>
