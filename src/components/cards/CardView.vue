@@ -96,7 +96,7 @@ div.name {
 }
 
 .title-icons {
-  justify-self: flex-end;
+  margin-left: auto;
   display: flex;
   flex-flow: row;
   gap: 4px;
