@@ -40,6 +40,7 @@ import AspectCounterGroup from '@/components/groups/AspectCounterGroup.vue'
 import AspectSubsetRadioGroup from '@/components/groups/AspectSubsetRadioGroup.vue'
 import OneOfAspectIcon from '@/components/aspects/OneOfAspectIcon.vue'
 import MemoryExtrasView from '@/components/cards/extras/MemoryExtrasView.vue'
+import SkillExtrasView from '@/components/cards/extras/SkillExtrasView.vue'
 
 const card = defineModel<Card>({ required: true })
 
@@ -52,7 +53,7 @@ withDefaults(defineProps<{
 
 const extrasViews = {
   soul: undefined,
-  skill: undefined,
+  skill: SkillExtrasView,
   memory: MemoryExtrasView,
   thing: undefined,
   room: undefined,
@@ -80,6 +81,7 @@ watch(extrasView, () => {
 
 .name {
   padding: var(--padding-input);
+  min-width: 6em;
 }
 
 div.name {

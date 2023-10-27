@@ -74,7 +74,7 @@ export function makeAspectSet() {
   })
 }
 
-// Workaround for for https://github.com/microsoft/TypeScript/issues/17002
+// Workaround for https://github.com/microsoft/TypeScript/issues/17002
 declare global {
   interface ArrayConstructor {
       isArray(arg: ReadonlyArray<any> | any): arg is ReadonlyArray<any>
@@ -173,10 +173,10 @@ type StringSubset<T> = Exclude<string, T> | string
  * @param aspects The {@link AspectSet} object to set/unset values in
  * @returns A reactive string that tracks which one of the `keys` in `aspects` is set 
  */
-export function useOneOfAspect<T extends StringSubset<T>>(keys: readonly T[], aspects: MaybeRefOrGetter<AspectSet>): Ref<T | undefined> {
+export function useOneOfAspect<T extends StringSubset<T>>(keys: MaybeRefOrGetter<readonly T[]>, aspects: MaybeRefOrGetter<AspectSet>): Ref<T | undefined> {
   const single = computed({
     get() {
-      return keys.find(a => toValue(aspects)[a] > 0)
+      return toValue(keys).find(a => toValue(aspects)[a] > 0)
     },
     set(value) {
       const selected = single.value

@@ -53,7 +53,6 @@ function onClick() {
 if (props.checked) {
   value.value = props.aspect
 }
-
 </script>
 
 <style scoped>

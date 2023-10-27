@@ -63,7 +63,7 @@ const hasSource = computed(() => source.value.length > 0)
 .memory-extras>div {
   display: flex;
   flex-flow: row;
-  gap: 4px;
+  gap: 2px;
 }
 
 input[type=text] {

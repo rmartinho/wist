@@ -10,13 +10,13 @@ export default {}
 </script>
 
 <template>
-  <aspect-component-group :aspects="aspects" v-slot="slot" v-bind="$attrs">
+  <aspect-component-group :aspects="aspectOptions" v-slot="slot" v-bind="$attrs">
     <aspect-radio v-bind="slot" :name="name" v-model="value" :optional="optional" v-on="itemEvents" />
   </aspect-component-group>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watchEffect } from 'vue'
 import { useId } from '@/utils/id'
 import AspectComponentGroup from '@/components/groups/AspectComponentGroup.vue'
 import AspectRadio from '@/components/aspects/AspectRadio.vue'
@@ -39,9 +39,18 @@ const name = useId('aspect-radio-')
 const itemEvents = computed(() => {
   const canDeselect = props.optional || props.default
   return canDeselect
-    ? {
-      deselect() { value.value = props.default }
-    }
+    ? { deselect() { value.value = props.default } }
     : {}
+})
+
+const aspectOptions = computed(() =>
+  props.default && !props.aspects.includes(props.default)
+    ? [...props.aspects, props.default]
+    : props.aspects)
+
+watchEffect(() => {
+  if (value.value == undefined || !props.aspects.includes(value.value)) {
+    value.value = props.default
+  }
 })
 </script>
