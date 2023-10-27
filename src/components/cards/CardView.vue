@@ -41,6 +41,7 @@ import AspectSubsetRadioGroup from '@/components/groups/AspectSubsetRadioGroup.v
 import OneOfAspectIcon from '@/components/aspects/OneOfAspectIcon.vue'
 import MemoryExtrasView from '@/components/cards/extras/MemoryExtrasView.vue'
 import SkillExtrasView from '@/components/cards/extras/SkillExtrasView.vue'
+import ThingExtrasView from '@/components/cards/extras/ThingExtrasView.vue'
 
 const card = defineModel<Card>({ required: true })
 
@@ -55,7 +56,7 @@ const extrasViews = {
   soul: undefined,
   skill: SkillExtrasView,
   memory: MemoryExtrasView,
-  thing: undefined,
+  thing: ThingExtrasView,
   room: undefined,
   workstation: undefined,
 } as any

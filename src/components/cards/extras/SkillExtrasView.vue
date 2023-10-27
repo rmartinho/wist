@@ -69,8 +69,4 @@ watch(boundWisdom, () => {
   flex-flow: row;
   gap: 2px;
 }
-
-input[type=text] {
-  width: 100%;
-}
 </style>

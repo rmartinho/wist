@@ -47,7 +47,7 @@ export const extraAspects = {
   soul: [],
   skill: ['language', 'chandlery'],
   memory: ['weather', 'omen', 'persistent'],
-  thing: ['tool', 'beverage', 'sustenance', 'metal', 'wood', 'fabric', 'candle', 'fuel', 'flower', 'pigment'],
+  thing: ['tool', 'beverage', 'sustenance', 'metal', 'wood', 'fabric', 'candle', 'fuel', 'flower', 'pigment', 'liquid'],
   room: [],
   workstation: [],
 } as const
