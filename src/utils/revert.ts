@@ -1,4 +1,4 @@
-import { shallowRef, type Ref, computed } from 'vue'
+import { type Ref, computed, ref } from 'vue'
 import { clone } from '@/utils/clone'
 
 /** A reactive object that can be reverted to an old value */
@@ -32,23 +32,23 @@ export interface RevertableRef<T> extends Ref<T> {
  * console.log(rev.value) // 0
  */
 export function useRevertableRef<T>(r: Ref<T>, cloner: (obj: T) => T = clone): RevertableRef<T> {
-  const old = shallowRef(cloner(r.value))
+  const temp = ref(cloner(r.value)) as Ref<T> // please no nested refs in clones
   return Object.assign(computed({
     get() {
-      return r.value
+      return temp.value
     },
     set(newValue) {
-      r.value = newValue
+      temp.value = newValue
     }
   }), {
     revert() {
-      r.value = cloner(old.value)
+      temp.value = cloner(r.value)
     },
     save() {
-      old.value = cloner(r.value)
+      r.value = cloner(temp.value)
     },
     get oldValue() {
-      return old.value
+      return r.value
     },
   })
 }

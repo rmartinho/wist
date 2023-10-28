@@ -62,8 +62,8 @@ export interface AspectSet extends Record<string, number> { }
  * 
  * @returns An {@link AspectSet} that automatically cleans up unused aspects
  */
-export function makeAspectSet() {
-  return new Proxy(<AspectSet>{}, {
+export function makeAspectSet(aspects: AspectSet = {}) {
+  return new Proxy(aspects, {
     set(obj, prop, value) {
       if (value == 0) {
         return Reflect.deleteProperty(obj, prop)

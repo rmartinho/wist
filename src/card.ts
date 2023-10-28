@@ -1,4 +1,5 @@
 import { makeAspectSet, type AspectSet, hasAnyAspect, principleAspects, typeAspects } from '@/aspects'
+import { Clone, clone, type Cloneable } from '@/utils/clone'
 
 /** A Book of Hours card */
 export interface Card {
@@ -20,15 +21,16 @@ let latestId = 0
  * @param name The card's name
  * @returns A new card with the given name
 */
-export function makeCard(options: Partial<Card> = {}): Card {
+export function makeCard(options: Partial<Card> = {}): Card & Cloneable {
   if (options.id && options.id > latestId) {
     latestId = options.id
   }
   return {
     id: latestId++,
     name: options.name ?? '',
-    aspects: Object.assign(makeAspectSet(), options.aspects ?? {}),
+    aspects: makeAspectSet(options.aspects ?? {}),
     source: options.source,
+    [Clone]() { return cloneCard(this) }
   }
 }
 
@@ -48,4 +50,20 @@ export function cardIsValid(card: any): card is Card {
     && card.name.length > 0
     && hasAnyAspect(card.aspects, ...principleAspects)
     && hasAnyAspect(card.aspects, ...typeAspects)
+}
+
+/**
+ * Clones a card
+ * 
+ * @param card The card to clone
+ * @returns a deep clone of {@link card}
+ */
+export function cloneCard(card: Card): Card & Cloneable {
+  return {
+    id: clone(card.id),
+    name: clone(card.name),
+    aspects: makeAspectSet(clone(card.aspects)),
+    source: clone(card.source),
+    [Clone]() { return cloneCard(this) }
+  }
 }
