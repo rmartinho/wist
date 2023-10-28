@@ -1,10 +1,10 @@
 <template>
   <div class="list">
-    <div class="buttons">
+    <div v-if="!newCard && !filter" class="buttons">
       <button @click="onAddCard">
         <add-icon />
       </button>
-      <button>
+      <button @click="onFilter">
         <filter-icon />
       </button>
     </div>
@@ -12,19 +12,22 @@
       <card-list-item v-model="newCard" mode="edit" @save="onNewSave" @remove="onNewRemove" />
     </div>
     <div v-if="filter">
+      <filter-selector v-model="filter" @reset="onResetFilter" />
     </div>
-    <card-list v-model="cards" mode="edit" @save="onChange" @remove="onChange" />
+    <card-list v-model="filteredCards" @save="onChange" @remove="onChange" :mode="filter? 'view' : 'edit'" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { parseJsonFromStorage, writeJsonToStorage } from '@/utils/storage'
 import { makeCard, cardIsValid, type Card } from '@/card'
+import { makeSlot, matchesSlot, type Slot } from '@/slot'
 import CardList from '@/components/cards/CardList.vue'
-import AddIcon from '@/assets/images/add.svg?component'
-import FilterIcon from '@/assets/images/search.svg?component'
 import CardListItem from '@/components/cards/CardListItem.vue'
+import FilterSelector from '@/components/filters/FilterSelector.vue'
+import AddIcon from '@/assets/images/add.svg?component'
+import FilterIcon from '@/assets/images/filter.svg?component'
 
 const storageKey = 'cards'
 
@@ -59,7 +62,24 @@ function onNewRemove() {
   newCard.value = undefined
 }
 
-const filter = ref(undefined)
+const filter = ref(undefined as Slot | undefined)
+
+function onFilter() {
+  filter.value = makeSlot()
+}
+
+function onResetFilter() {
+  filter.value = undefined
+}
+
+const filteredCards = computed(() => {
+  const slot = filter.value
+  if (slot) {
+    return cards.value.filter(c => matchesSlot(c.aspects, slot))
+  } else {
+    return cards.value
+  }
+})
 </script>
 
 <style scoped>
@@ -70,7 +90,7 @@ const filter = ref(undefined)
 }
 
 .buttons {
-  margin-left: 4px;
+  padding-left: 4px;
   display: flex;
   flex-flow: row;
 }

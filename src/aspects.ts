@@ -54,6 +54,23 @@ export const extraAspects = {
 /** The type of the additional aspects for a given card type */
 export type ExtraAspects<T extends keyof typeof extraAspects> = Partial<Record<typeof extraAspects[T][number], boolean>>
 
+/** An array of all the aspects that we can filter by */
+export const filterAspects = [
+  ...typeAspects,
+  ...principleAspects,
+  ...wisdomAspects,
+  ...attunementAspects,
+  ...cleanseAspects,
+  ...extraAspects.soul,
+  ...extraAspects.skill,
+  ...extraAspects.memory,
+  ...extraAspects.thing,
+  ...extraAspects.room,
+  ...extraAspects.workstation,
+] as const
+/** The type of aspects that we can filter by */
+export type FilterAspect = typeof filterAspects[number]
+
 /** A set of aspects mapped to their values */
 export interface AspectSet extends Record<string, number> { }
 
@@ -77,7 +94,7 @@ export function makeAspectSet(aspects: AspectSet = {}) {
 // Workaround for https://github.com/microsoft/TypeScript/issues/17002
 declare global {
   interface ArrayConstructor {
-      isArray(arg: ReadonlyArray<any> | any): arg is ReadonlyArray<any>
+    isArray(arg: ReadonlyArray<any> | any): arg is ReadonlyArray<any>
   }
 }
 
