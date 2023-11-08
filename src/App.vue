@@ -14,7 +14,7 @@
     <div v-if="filter">
       <filter-selector v-model="filter" @reset="onResetFilter" />
     </div>
-    <card-list v-model="filteredCards" @save="onChange" @remove="onChange" :mode="filter? 'view' : 'edit'" />
+    <card-list v-model="filteredCards" @save="onChange" @remove="onChange" mode="edit" />
   </div>
 </template>
 
